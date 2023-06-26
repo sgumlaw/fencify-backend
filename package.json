@@ -1,0 +1,47 @@
+{
+  "name": "fencify-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Backend for Fencify GraphQL API",
+  "main": "index.js",
+  "scripts": {
+    "sls": "sls",
+    "exportEnv": "sls export-env && sls manifest",
+    "integration-test": "jest --verbose ./__tests__/test_cases/integration",
+    "e2e-test": "jest --verbose ./__tests__/test_cases/e2e",
+    "test": "jest --verbose ./__tests__/test_cases/unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgumlaw/fencify-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgumlaw/fencify-backend/issues"
+  },
+  "homepage": "https://github.com/sgumlaw/fencify-backend#readme",
+  "devDependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@types/jest": "^29.5.2",
+    "amplify-appsync-simulator": "^2.4.1",
+    "amplify-velocity-template": "^1.4.11",
+    "aws-sdk": "^2.778.0",
+    "axios": "^1.4.0",
+    "dotenv": "^16.1.4",
+    "jest": "^29.5.0",
+    "lodash": "^4.17.21",
+    "serverless": "2.4.0",
+    "serverless-appsync-plugin": "^1.4.0",
+    "serverless-export-env": "github:arabold/serverless-export-env",
+    "serverless-iam-roles-per-function": "^3.2.0",
+    "serverless-manifest-plugin": "^1.0.9",
+    "serverless-stack-output": "^0.2.3",
+    "serverless-webpack": "^5.11.0"
+  },
+  "dependencies": {
+    "chance": "^1.1.11",
+    "ulid": "^2.3.0"
+  }
+}

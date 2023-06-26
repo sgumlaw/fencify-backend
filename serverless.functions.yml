@@ -1,0 +1,54 @@
+name: fencify-serverless-functions
+functions:
+  quote:
+    handler: functions/create-quote.handler
+    environment:
+      QUOTES_TABLE_NAME: !Ref QuotesTable
+      QUOTE_ITEMS_TABLE_NAME: !Ref QuoteItemsTable
+      # ESTIMATORS_TABLE_NAME: !Ref EstimatorsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt QuotesTable.Arn
+          - !GetAtt QuoteItemsTable.Arn
+          # - !GetAtt EstimatorsTable.Arn
+  order:
+    handler: functions/create-order.handler
+    environment:
+      ORDERS_TABLE_NAME: !Ref OrdersTable
+      ORDER_ITEMS_TABLE_NAME: !Ref OrderItemsTable
+      # ESTIMATOR_TABLE_NAME: !Ref EstimatorsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt OrdersTable.Arn
+          - !GetAtt OrderItemsTable.Arn
+          # - !GetAtt EstimatorsTable.Arn
+  estimate:
+    handler: functions/create-estimate.handler
+    environment:
+      ESTIMATES_TABLE_NAME: !Ref EstimatesTable
+      ESTIMATE_ITEMS_TABLE_NAME: !Ref EstimateItemsTable
+      # ESTIMATOR_TABLE_NAME: !Ref EstimatorsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt EstimatesTable.Arn
+          - !GetAtt EstimateItemsTable.Arn
+          # - !GetAtt EstimatorsTable.Arn
+  contract:
+    handler: functions/create-contract.handler
+    environment:
+      CONTRACTS_TABLE_NAME: !Ref ContractsTable
+      CONTRACT_ITEMS_TABLE_NAME: !Ref ContractItemsTable
+      # ESTIMATORS_TABLE_NAME: !Ref EstimatorsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt ContractsTable.Arn
+          - !GetAtt ContractItemsTable.Arn
+          # - !GetAtt EstimatorsTable.Arn

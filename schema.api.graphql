@@ -1,0 +1,1800 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+type Mutation {
+  createEstimator(data: EstimatorCreateInput!): Estimator
+
+  updateEstimator(
+    where: EstimatorWhereInput!
+    data: EstimatorUpdateInput # operation: EstimatorOperationInput
+  ): Estimator
+
+  upsertEstimator(
+    create: EstimatorCreateInput!
+    update: EstimatorUpdateInput!
+    where: EstimatorWhereInput!
+  ): Estimator
+
+  deleteEstimator(where: EstimatorWhereInput!): Estimator
+
+  createEstimatorSpecifications(
+    data: EstimatorSpecificationsCreateInput!
+  ): EstimatorSpecifications
+
+  updateEstimatorSpecifications(
+    where: EstimatorSpecificationsWhereInput!
+    data: EstimatorSpecificationsUpdateInput # operation: EstimatorSpecificationsOperationInput
+  ): EstimatorSpecifications
+
+  upsertEstimatorSpecifications(
+    create: EstimatorSpecificationsCreateInput!
+    update: EstimatorSpecificationsUpdateInput!
+    where: EstimatorSpecificationsWhereInput!
+  ): EstimatorSpecifications
+
+  deleteEstimatorSpecifications(
+    where: EstimatorSpecificationsWhereInput!
+  ): EstimatorSpecifications
+
+  createContract(data: ContractCreateInput!): Contract
+
+  updateContract(
+    where: ContractWhereInput!
+    data: ContractUpdateInput
+  ): Contract
+
+  upsertContract(
+    create: ContractCreateInput!
+    update: ContractUpdateInput!
+    where: ContractWhereInput!
+  ): Contract
+
+  deleteContract(where: ContractWhereInput!): Contract
+
+  createContractItem(data: ContractItemCreateInput!): ContractItem
+
+  updateContractItem(
+    where: ContractItemWhereInput!
+    data: ContractItemUpdateInput
+  ): ContractItem
+
+  upsertContractItem(
+    create: ContractItemCreateInput!
+    update: ContractItemUpdateInput!
+    where: ContractItemWhereInput!
+  ): ContractItem
+
+  deleteContractItem(where: ContractItemWhereInput!): ContractItem
+
+  createContractJobCost(data: ContractJobCostCreateInput!): ContractJobCost
+
+  updateContractJobCost(
+    where: ContractJobCostWhereInput!
+    data: ContractJobCostUpdateInput
+  ): ContractJobCost
+
+  upsertContractJobCost(
+    create: ContractJobCostCreateInput!
+    update: ContractJobCostUpdateInput!
+    where: ContractJobCostWhereInput!
+  ): ContractJobCost
+
+  deleteContractJobCost(where: ContractJobCostWhereInput!): ContractJobCost
+
+  createContractTerm(data: ContractTermCreateInput!): ContractTerm
+
+  updateContractTerm(
+    where: ContractTermWhereInput!
+    data: ContractTermUpdateInput
+  ): ContractTerm
+
+  upsertContractTerm(
+    create: ContractTermCreateInput!
+    update: ContractTermUpdateInput!
+    where: ContractTermWhereInput!
+  ): ContractTerm
+
+  deleteContractTerm(where: ContractTermWhereInput!): ContractTerm
+
+  createCustomer(data: CustomerCreateInput!): Customer
+
+  updateCustomer(
+    where: CustomerWhereInput!
+    data: CustomerUpdateInput
+  ): Customer
+
+  upsertCustomer(
+    create: CustomerCreateInput!
+    update: CustomerUpdateInput!
+    where: CustomerWhereInput!
+  ): Customer
+
+  deleteCustomer(where: CustomerWhereInput!): Customer
+
+  createEstimate(data: EstimateCreateInput!): Estimate
+
+  updateEstimate(
+    where: EstimateWhereInput!
+    data: EstimateUpdateInput
+  ): Estimate
+
+  upsertEstimate(
+    create: EstimateCreateInput!
+    update: EstimateUpdateInput!
+    where: EstimateWhereInput!
+  ): Estimate
+
+  deleteEstimate(where: EstimateWhereInput!): Estimate
+
+  createEstimateItem(data: EstimateItemCreateInput!): EstimateItem
+
+  updateEstimateItem(
+    where: EstimateItemWhereInput!
+    data: EstimateItemUpdateInput
+  ): EstimateItem
+
+  upsertEstimateItem(
+    create: EstimateItemCreateInput!
+    update: EstimateItemUpdateInput!
+    where: EstimateItemWhereInput!
+  ): EstimateItem
+
+  deleteEstimateItem(where: EstimateItemWhereInput!): EstimateItem
+
+  createEstimateJobCost(data: EstimateJobCostCreateInput!): EstimateJobCost
+
+  updateEstimateJobCost(
+    where: EstimateJobCostWhereInput!
+    data: EstimateJobCostUpdateInput
+  ): EstimateJobCost
+
+  upsertEstimateJobCost(
+    create: EstimateJobCostCreateInput!
+    update: EstimateJobCostUpdateInput!
+    where: EstimateJobCostWhereInput!
+  ): EstimateJobCost
+
+  deleteEstimateJobCost(where: EstimateJobCostWhereInput!): EstimateJobCost
+
+  createEstimateTerm(data: EstimateTermCreateInput!): EstimateTerm
+
+  updateEstimateTerm(
+    where: EstimateTermWhereInput!
+    data: EstimateTermUpdateInput
+  ): EstimateTerm
+
+  upsertEstimateTerm(
+    create: EstimateTermCreateInput!
+    update: EstimateTermUpdateInput!
+    where: EstimateTermWhereInput!
+  ): EstimateTerm
+
+  deleteEstimateTerm(where: EstimateTermWhereInput!): EstimateTerm
+
+  createInstallationTerm(data: InstallationTermCreateInput!): InstallationTerm
+
+  updateInstallationTerm(
+    where: InstallationTermWhereInput!
+    data: InstallationTermUpdateInput
+  ): InstallationTerm
+
+  upsertInstallationTerm(
+    create: InstallationTermCreateInput!
+    update: InstallationTermUpdateInput!
+    where: InstallationTermWhereInput!
+  ): InstallationTerm
+
+  deleteInstallationTerm(where: InstallationTermWhereInput!): InstallationTerm
+
+  createProduct(data: ProductCreateInput!): Product
+
+  updateProduct(where: ProductWhereInput!, data: ProductUpdateInput): Product
+
+  upsertProduct(
+    create: ProductCreateInput!
+    update: ProductUpdateInput!
+    where: ProductWhereInput!
+  ): Product
+
+  deleteProduct(where: ProductWhereInput!): Product
+
+  createJobCost(data: JobCostCreateInput!): JobCost
+
+  updateJobCost(where: JobCostWhereInput!, data: JobCostUpdateInput): JobCost
+
+  upsertJobCost(
+    create: JobCostCreateInput!
+    update: JobCostUpdateInput!
+    where: JobCostWhereInput!
+  ): JobCost
+
+  deleteJobCost(where: JobCostWhereInput!): JobCost
+
+  createEstimatorLayout(data: EstimatorLayoutCreateInput!): EstimatorLayout
+
+  updateEstimatorLayout(
+    where: EstimatorLayoutWhereInput!
+    data: EstimatorLayoutUpdateInput
+  ): EstimatorLayout
+
+  upsertEstimatorLayout(
+    create: EstimatorLayoutCreateInput!
+    update: EstimatorLayoutUpdateInput!
+    where: EstimatorLayoutWhereInput!
+  ): EstimatorLayout
+
+  deleteEstimatorLayout(where: EstimatorLayoutWhereInput!): EstimatorLayout
+
+  createOrder(data: OrderCreateInput!): Order
+
+  updateOrder(where: OrderWhereInput!, data: OrderUpdateInput): Order
+
+  upsertOrder(
+    create: OrderCreateInput!
+    update: OrderUpdateInput!
+    where: OrderWhereInput!
+  ): Order
+
+  deleteOrder(where: OrderWhereInput!): Order
+
+  createOrderItem(data: OrderItemCreateInput!): OrderItem
+
+  updateOrderItem(where: OrderItemWhereInput!): OrderItem
+
+  upsertOrderItem(
+    create: OrderItemCreateInput!
+    update: OrderItemUpdateInput!
+    where: OrderItemWhereInput!
+  ): OrderItem
+
+  deleteOrderItem(where: OrderItemWhereInput!): OrderItem
+
+  createQuote(data: QuoteCreateInput!): Quote
+
+  updateQuote(where: QuoteWhereInput!, data: QuoteUpdateInput): Quote
+
+  upsertQuote(
+    create: QuoteCreateInput!
+    update: QuoteUpdateInput!
+    where: QuoteWhereInput!
+  ): Quote
+
+  deleteQuote(where: QuoteWhereInput!): Quote
+
+  createQuoteItem(data: QuoteItemCreateInput!): QuoteItem
+
+  updateQuoteItem(
+    where: QuoteItemWhereInput!
+    data: QuoteItemUpdateInput
+  ): QuoteItem
+
+  upsertQuoteItem(
+    create: QuoteItemCreateInput!
+    update: QuoteItemUpdateInput!
+    where: QuoteItemWhereInput!
+  ): QuoteItem
+
+  deleteQuoteItem(where: QuoteItemWhereInput!): QuoteItem
+
+  createUser(data: UserCreateInput!): User
+
+  updateUser(where: UserWhereInput!, data: UserUpdateInput): User
+
+  upsertUser(
+    create: UserCreateInput!
+    update: UserUpdateInput!
+    where: UserWhereInput!
+  ): User
+
+  deleteUser(where: UserWhereInput!): User
+
+  createQuoteId(data: QuoteIdCreateInput!): QuoteId
+
+  updateQuoteId(where: QuoteIdWhereInput!, data: QuoteIdUpdateInput): QuoteId
+
+  upsertQuoteId(
+    create: QuoteIdCreateInput!
+    update: QuoteIdUpdateInput!
+    where: QuoteIdWhereInput!
+  ): QuoteId
+
+  deleteQuoteId(where: QuoteIdWhereInput!): QuoteId
+
+  createOrderId(data: OrderIdCreateInput!): OrderId
+
+  updateOrderId(where: OrderIdWhereInput!, data: OrderIdUpdateInput): OrderId
+
+  upsertOrderId(
+    create: OrderIdCreateInput!
+    update: OrderIdUpdateInput!
+    where: OrderIdWhereInput!
+  ): OrderId
+
+  deleteOrderId(where: OrderIdWhereInput!): OrderId
+
+  createEstimateId(data: EstimateIdCreateInput!): EstimateId
+
+  updateEstimateId(
+    where: EstimateIdWhereInput!
+    data: EstimateIdUpdateInput
+  ): EstimateId
+
+  upsertEstimateId(
+    create: EstimateIdCreateInput!
+    update: EstimateIdUpdateInput!
+    where: EstimateIdWhereInput!
+  ): EstimateId
+
+  deleteEstimateId(where: EstimateIdWhereInput!): EstimateId
+
+  createContractId(data: ContractIdCreateInput!): ContractId
+
+  updateContractId(
+    where: ContractIdWhereInput!
+    data: ContractIdUpdateInput
+  ): ContractId
+
+  upsertContractId(
+    create: ContractIdCreateInput!
+    update: ContractIdUpdateInput!
+    where: ContractIdWhereInput!
+  ): ContractId
+
+  deleteContractId(where: ContractIdWhereInput!): ContractId
+}
+
+type Query {
+  getImageUploadUrl(extension: String, contentType: String): AWSURL!
+
+  getEstimator(where: EstimatorWhereInput!): Estimator
+
+  listEstimators(where: EstimatorWhereInput, skip: Int, take: Int): [Estimator]
+
+  # countEstimators(where: EstimatorWhereInput, skip: Int, take: Int): Int
+
+  getEstimatorSpecifications(
+    where: EstimatorSpecificationsWhereInput!
+  ): EstimatorSpecifications
+
+  getEstimatorSpecifications(
+    where: EstimatorSpecificationsWhereInput
+    skip: Int
+    take: Int
+  ): [EstimatorSpecifications]
+
+  # countEstimatorSpecifications(
+  #   where: EstimatorSpecificationsWhereInput
+  #   skip: Int
+  #   take: Int
+  # ): Int
+
+  getContract(where: ContractWhereInput!): Contract
+
+  listContracts(where: ContractWhereInput, skip: Int, take: Int): [Contract]
+  #
+  # countContracts(where: ContractWhereInput, skip: Int, take: Int): Int
+
+  getContractItem(where: ContractItemWhereInput!): ContractItem
+
+  listContractItems(
+    where: ContractItemWhereInput
+    skip: Int
+    take: Int
+  ): [ContractItem]
+
+  # countContractItems(where: ContractItemWhereInput, skip: Int, take: Int): Int
+
+  getContractJobCost(where: ContractJobCostWhereInput!): ContractJobCost
+
+  listContractJobCosts(
+    where: ContractJobCostWhereInput
+    skip: Int
+    take: Int
+  ): [ContractJobCost]
+
+  # countContractJobCosts(
+  #   where: ContractJobCostWhereInput
+  #   skip: Int
+  #   take: Int
+  # ): Int
+
+  getContractTerm(where: ContractTermWhereInput!): ContractTerm
+
+  listContractTerms(
+    where: ContractTermWhereInput!
+    skip: Int
+    take: Int
+  ): [ContractTerm]
+
+  # countContractTerms(where: ContractTermWhereInput, skip: Int, take: Int): Int
+
+  getCustomer(where: CustomerWhereInput!): Customer
+
+  listCustomers(where: CustomerWhereInput, skip: Int, take: Int): [Customer]
+
+  # countCustomers(where: CustomerWhereInput, skip: Int, take: Int): Int
+
+  getEstimate(where: EstimateWhereInput!): Estimate
+
+  listEstimates(where: EstimateWhereInput, skip: Int, take: Int): [Estimate]
+
+  # countEstimates(where: EstimateWhereInput, skip: Int, take: Int): Int
+
+  getEstimateItem(where: EstimateItemWhereInput!): EstimateItem
+
+  listEstimateItems(
+    where: EstimateItemWhereInput
+    skip: Int
+    take: Int
+  ): [EstimateItem]
+
+  # countEstimateItems(where: EstimateItemWhereInput, skip: Int, take: Int): Int
+
+  getEstimateJobCost(where: EstimateJobCostWhereInput!): EstimateJobCost
+
+  listEstimateJobCosts(
+    where: EstimateJobCostWhereInput
+    skip: Int
+    take: Int
+  ): [EstimateJobCost]
+
+  # countEstimateJobCosts(
+  #   where: EstimateJobCostWhereInput
+  #   skip: Int
+  #   take: Int
+  # ): Int
+
+  getEstimateTerm(where: EstimateTermWhereInput!): EstimateTerm
+
+  listEstimateTerms(
+    where: EstimateTermWhereInput
+    skip: Int
+    take: Int
+  ): [EstimateTerm]
+
+  # countEstimateTerms(where: EstimateTermWhereInput, skip: Int, take: Int): Int
+
+  getInstallationTerm(where: InstallationTermWhereInput!): InstallationTerm
+
+  listInstallationTerms(
+    where: InstallationTermWhereInput
+    skip: Int
+    take: Int
+  ): [InstallationTerm]
+
+  # countInstallationTerms(
+  #   where: InstallationTermWhereInput
+  #   skip: Int
+  #   take: Int
+  # ): Int
+
+  getProduct(where: ProductWhereInput!): Product
+
+  listProducts(where: ProductWhereInput, skip: Int, take: Int): [Product]
+
+  # countProducts(where: ProductWhereInput, skip: Int, take: Int): Int
+
+  getJobCost(where: JobCostWhereInput!): JobCost
+
+  listJobCosts(where: JobCostWhereInput, skip: Int, take: Int): [JobCost]
+
+  # countJobCosts(where: JobCostWhereInput, skip: Int, take: Int): Int
+
+  getEstimatorLayout(where: EstimatorLayoutWhereInput!): EstimatorLayout
+
+  listEstimatorLayouts(
+    where: EstimatorLayoutWhereInput
+    skip: Int
+    take: Int
+  ): [EstimatorLayout]
+
+  # countEstimatorLayouts(
+  #   where: EstimatorLayoutWhereInput
+  #   skip: Int
+  #   take: Int
+  # ): Int
+
+  getOrder(where: OrderWhereInput!): Order
+
+  listOrders(where: OrderWhereInput, skip: Int, take: Int): [Order]
+
+  # countOrders(where: OrderWhereInput, skip: Int, take: Int): Int
+
+  getOrderItem(where: OrderItemWhereInput!): OrderItem
+
+  listOrderItems(where: OrderItemWhereInput, skip: Int, take: Int): [OrderItem]
+
+  # countOrderItems(where: OrderItemWhereInput, skip: Int, take: Int): Int
+
+  getQuote(where: QuoteWhereInput!): Quote
+
+  listQuotes(where: QuoteWhereInput, skip: Int, take: Int): [Quote]
+
+  # countQuotes(where: QuoteWhereInput, skip: Int, take: Int): Int
+
+  getQuoteItem(where: QuoteItemWhereInput!): QuoteItem
+
+  listQuoteItems(where: QuoteItemWhereInput, skip: Int, take: Int): [QuoteItem]
+
+  # countQuoteItems(where: QuoteItemWhereInput, skip: Int, take: Int): Int
+
+  getUser(where: UserWhereInput!): User
+
+  listUsers(where: UserWhereInput, skip: Int, take: Int): [User]
+
+  getQuoteId(where: QuoteIdWhereInput!): QuoteId
+
+  listQuoteIds(where: QuoteIdWhereInput, skip: Int, take: Int): [QuoteId]
+
+  getOrderId(where: OrderIdWhereInput!): OrderId
+
+  listOrderIds(where: OrderIdWhereInput, skip: Int, take: Int): [OrderId]
+
+  getEstimateId(where: EstimateIdWhereInput!): EstimateId
+
+  listEstimateIds(
+    where: EstimateIdWhereInput
+    skip: Int
+    take: Int
+  ): [EstimateId]
+
+  getContractId(where: ContractIdWhereInput!): ContractId
+
+  listContractIds(
+    where: ContractIdWhereInput
+    skip: Int
+    take: Int
+  ): [ContractId]
+
+  # countUsers(where: UserWhereInput, skip: Int, take: Int): Int
+}
+
+# Resource Types
+type User {
+  userId: ID!
+  lastName: String!
+  firstName: String!
+  middleInitial: String
+  phone: String
+  email: AWSEmail!
+  hireDate: AWSDateTime!
+  isActive: Boolean
+  imageUrl: AWSURL
+  backgroundImageUrl: AWSURL
+  birthdate: AWSDate
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+
+input UserWhereInput {
+  userId: String
+  email: AWSEmail
+}
+
+input UserCreateInput {
+  userId: String
+  lastName: String!
+  firstName: String!
+  middleInitial: String
+  phone: String
+  email: AWSEmail!
+  hireDate: AWSDateTime!
+  isActive: Boolean
+  imageUrl: AWSURL
+  backgroundImageUrl: AWSURL
+  birthdate: AWSDate
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+}
+
+input UserUpdateInput {
+  lastName: String
+  firstName: String
+  middleInitial: String
+  phone: String
+  email: AWSEmail
+  hireDate: AWSDateTime
+  isActive: Boolean
+  imageUrl: AWSURL
+  backgroundImageUrl: AWSURL
+  birthdate: AWSDate
+  dateUpdated: AWSDateTime
+}
+
+type Customer {
+  customerId: ID!
+  name: String!
+  customerType: String!
+  address: String!
+  city: String!
+  state: String!
+  zipcode: String!
+  contactName: String
+  contactEmail: String
+  website: String
+  source: String
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  phone: String
+  priceLevel: String
+}
+
+input CustomerWhereInput {
+  customerId: String!
+}
+
+input CustomerCreateInput {
+  customerId: ID!
+  name: String!
+  customerType: String!
+  address: String!
+  city: String!
+  state: String!
+  zipcode: String!
+  contactName: String
+  contactEmail: String
+  website: String
+  source: String
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  phone: String
+  priceLevel: String
+}
+
+input CustomerUpdateInput {
+  name: String
+  customerType: String
+  address: String
+  city: String
+  state: String
+  zipcode: String
+  contactName: String
+  contactEmail: String
+  website: String
+  source: String
+  dateUpdated: AWSDateTime
+  phone: String
+  priceLevel: String
+}
+
+type Product {
+  itemId: ID!
+  category: String!
+  name: String!
+  color: String!
+  diameter: String
+  gauge: String
+  height: Float
+  width: Float
+  upright: Float
+  type: String
+  uom: String
+  length: Float
+  roundup: Int
+  accountingId: String
+  vendorId: String
+  preferredVendor: String
+  rail: String
+  model: String
+  frame: String
+  mesh: String
+  selvage: String
+  stock: Boolean!
+  location: String
+  weight: Float
+  cost: Float!
+  classType: String
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  gateType: String
+  hardwareFunction: String
+  func: String
+}
+
+input ProductWhereInput {
+  itemId: ID!
+}
+
+input ProductCreateInput {
+  itemId: ID!
+  category: String!
+  name: String!
+  color: String!
+  diameter: String
+  gauge: String
+  height: Float
+  width: Float
+  upright: Float
+  type: String
+  uom: String
+  length: Float
+  roundup: Int
+  accountingId: String
+  vendorId: String
+  preferredVendor: String
+  rail: String
+  model: String
+  frame: String
+  mesh: String
+  selvage: String
+  stock: Boolean
+  location: String
+  weight: Float
+  cost: Float!
+  classType: String
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+  gateType: String
+  hardwareFunction: String
+  func: String
+}
+
+input ProductUpdateInput {
+  itemId: String
+  category: String
+  name: String
+  color: String
+  diameter: String
+  gauge: String
+  height: Float
+  width: Float
+  upright: Float
+  type: String
+  uom: String
+  length: Float
+  roundup: Int
+  accountingId: String
+  vendorId: String
+  preferredVendor: String
+  rail: String
+  model: String
+  frame: String
+  mesh: String
+  selvage: String
+  stock: Boolean
+  location: String
+  weight: Float
+  cost: Float
+  classType: String
+  dateUpdated: AWSDateTime
+  gateType: String
+  hardwareFunction: String
+  func: String
+}
+
+type QuoteId {
+  id: ID!
+  quoteId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input QuoteIdWhereInput {
+  quoteId: String!
+}
+input QuoteIdCreateInput {
+  id: ID!
+  quoteId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input QuoteIdUpdateInput {
+  quoteId: String!
+  dateUpdated: AWSDateTime
+}
+
+type OrderId {
+  id: ID!
+  orderId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input OrderIdWhereInput {
+  orderId: String!
+}
+input OrderIdCreateInput {
+  id: ID!
+  orderId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input OrderIdUpdateInput {
+  orderId: String!
+  dateUpdated: AWSDateTime
+}
+
+type EstimateId {
+  id: ID!
+  estimateId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input EstimateIdWhereInput {
+  estimateId: String!
+}
+input EstimateIdCreateInput {
+  id: ID!
+  estimateId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input EstimateIdUpdateInput {
+  estimateId: String!
+  dateUpdated: AWSDateTime
+}
+
+type ContractId {
+  id: ID!
+  contractId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input ContractIdWhereInput {
+  contractId: String!
+}
+input ContractIdCreateInput {
+  id: ID!
+  contractId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+input ContractIdUpdateInput {
+  contractId: String!
+  dateUpdated: AWSDateTime
+}
+
+type JobCost {
+  costId: ID!
+  name: String!
+  type: String!
+  rate: Float!
+  rateType: String!
+  jobType: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+
+input JobCostWhereInput {
+  costId: ID!
+}
+
+input JobCostCreateInput {
+  costId: String!
+  name: String!
+  type: String!
+  rate: Float!
+  rateType: String!
+  jobType: String!
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+}
+
+input JobCostUpdateInput {
+  name: String
+  type: String
+  rate: Float
+  rateType: String
+  jobType: String
+  dateUpdated: AWSDateTime
+}
+
+type InstallationTerm {
+  termId: ID!
+  type: String!
+  jobType: String
+  class: String!
+  description: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime!
+}
+
+input InstallationTermWhereInput {
+  termId: ID
+}
+
+input InstallationTermCreateInput {
+  termId: ID!
+  type: String!
+  jobType: String
+  class: String!
+  description: String!
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+}
+
+input InstallationTermUpdateInput {
+  type: String
+  jobType: String
+  class: String
+  description: String
+  dateUpdated: AWSDateTime
+}
+
+#Utility Types
+type Estimator {
+  estimatorId: String!
+  transactionId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+
+input EstimatorWhereInput {
+  estimatorId: String
+  transactionId: String
+}
+
+input EstimatorCreateInput {
+  estimatorId: String!
+  transactionId: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+
+input EstimatorUpdateInput {
+  transactionId: String!
+  dateUpdated: AWSDateTime
+}
+
+type EstimatorSpecifications {
+  estimatorId: String!
+  transactionId: String!
+  class: String
+  color: String
+  height: Float
+  gauge: String
+  mesh: String
+  selvage: String
+  chainlinkId: String
+  topRailType: String
+  midRailCount: Int
+  bottomRailType: String
+  braceRailBool: Boolean
+  trussRodsBool: Boolean
+  terminalPostDiameter: String
+  terminalPostGauge: String
+  terminalPostId: String
+  terminalPostLength: Float
+  linePostDiameter: String
+  linePostGauge: String
+  linePostId: String
+  linePostLength: Float
+  railPipeDiameter: String
+  railPipeGauge: String
+  railPipeId: String
+  railPipeLength: Float
+  maxSectionSpacingFeet: Int
+  platedPostsBool: Boolean
+  barbwireBool: Boolean
+  razorBool: Boolean
+  tensionwireId: String
+  hogRingsId: String
+  tiesPerRail: Int
+  tiesPerRailLine: Int
+  tensionBandPerHookup: Int
+  braceBandPerHookup: Int
+  barbarmId: String
+  barbwireId: String
+  baseId: String
+  boltId: String
+  concreteId: String
+  linetieId: String
+  loopId: String
+  railEndId: String
+  railTieId: String
+  razorId: String
+  tensionBarId: String
+  terminalBraceId: String
+  terminalCapId: String
+  ternminalTensionId: String
+  trussRodId: String
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+
+input EstimatorSpecificationsWhereInput {
+  estimatorId: String!
+  transactionId: String!
+}
+
+input EstimatorSpecificationsCreateInput {
+  estimatorId: String!
+  transactionId: String!
+  class: String
+  color: String
+  height: Float
+  gauge: String
+  mesh: String
+  selvage: String
+  chainlinkId: String
+  topRailType: String
+  midRailCount: Int
+  bottomRailType: String
+  braceRailBool: Boolean
+  trussRodsBool: Boolean
+  terminalPostDiameter: String
+  terminalPostGauge: String
+  terminalPostId: String
+  terminalPostLength: Float
+  linePostDiameter: String
+  linePostGauge: String
+  linePostId: String
+  linePostLength: Float
+  railPipeDiameter: String
+  railPipeGauge: String
+  railPipeId: String
+  railPipeLength: Float
+  maxSectionSpacingFeet: Int
+  platedPostsBool: Boolean
+  barbwireBool: Boolean
+  razorBool: Boolean
+  tensionwireId: String
+  hogRingsId: String
+  tiesPerRail: Int
+  tiesPerRailLine: Int
+  tensionBandPerHookup: Int
+  braceBandPerHookup: Int
+  barbarmId: String
+  barbwireId: String
+  baseId: String
+  boltId: String
+  concreteId: String
+  linetieId: String
+  loopId: String
+  railEndId: String
+  railTieId: String
+  razorId: String
+  tensionBarId: String
+  terminalBraceId: String
+  terminalCapId: String
+  ternminalTensionId: String
+  trussRodId: String
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+
+input EstimatorSpecificationsUpdateInput {
+  estimatorId: String!
+  transactionId: String!
+  class: String
+  color: String
+  height: Float
+  gauge: String
+  mesh: String
+  selvage: String
+  chainlinkId: String
+  topRailType: String
+  midRailCount: Int
+  bottomRailType: String
+  braceRailBool: Boolean
+  trussRodsBool: Boolean
+  terminalPostDiameter: String
+  terminalPostGauge: String
+  terminalPostId: String
+  terminalPostLength: Float
+  linePostDiameter: String
+  linePostGauge: String
+  linePostId: String
+  linePostLength: Float
+  railPipeDiameter: String
+  railPipeGauge: String
+  railPipeId: String
+  railPipeLength: Float
+  maxSectionSpacingFeet: Int
+  platedPostsBool: Boolean
+  barbwireBool: Boolean
+  razorBool: Boolean
+  tensionwireId: String
+  hogRingsId: String
+  tiesPerRail: Int
+  tiesPerRailLine: Int
+  tensionBandPerHookup: Int
+  braceBandPerHookup: Int
+  barbarmId: String
+  barbwireId: String
+  baseId: String
+  boltId: String
+  concreteId: String
+  linetieId: String
+  loopId: String
+  railEndId: String
+  railTieId: String
+  razorId: String
+  tensionBarId: String
+  terminalBraceId: String
+  terminalCapId: String
+  ternminalTensionId: String
+  trussRodId: String
+  dateUpdated: AWSDateTime
+}
+
+type EstimatorLayout {
+  estimatorId: String!
+  transactionId: String!
+  totalFootage: Float!
+  totalLines: Int!
+  totalEnds: Int!
+  totalCorners: Int!
+  totalHookups: Int!
+  totalTieIns: Int!
+  runsArray: [Int]
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime!
+}
+
+input EstimatorLayoutWhereInput {
+  estimatorId: String!
+  transactionId: String!
+}
+
+input EstimatorLayoutCreateInput {
+  estimatorId: String!
+  transactionId: String!
+  totalFootage: Float
+  totalLines: Int
+  totalEnds: Int
+  totalCorners: Int
+  totalHookups: Int
+  totalTieIns: Int
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+}
+
+input EstimatorLayoutUpdateInput {
+  estimatorId: String
+  transactionId: String
+  totalFootage: Float
+  totalLines: Int
+  totalEnds: Int
+  totalCorners: Int
+  totalHookups: Int
+  totalTieIns: Int
+  dateUpdated: AWSDateTime
+}
+
+type Contract {
+  contractId: ID!
+  customerId: String!
+  userId: String!
+  totalContractProductCost: Float!
+  totalContractProductTax: Float!
+  totalContractProductPrice: Float!
+  totalContactProductPrice: Float!
+  totalContractJobCosts: Float
+  totalContractManHours: Float
+  totalContractCosts: Float
+  totalContractProfit: Float
+  totalContractContingency: Float
+  totalContractPrice: Float
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  contractDate: String
+  projectName: String
+  priceLevel: String!
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  finalized: Int
+  finalizedDate: AWSDateTime
+}
+
+input ContractWhereInput {
+  contractId: String
+}
+
+input ContractCreateInput {
+  contractId: String
+  customerId: String
+  userId: String
+  totalContractProductCost: Float!
+  totalContractProductTax: Float!
+  totalContractProductPrice: Float!
+  totalContactProductPrice: Float!
+  totalContractJobCosts: Float
+  totalContractManHours: Float
+  totalContractCosts: Float
+  totalContractProfit: Float
+  totalContractContingency: Float
+  totalContractPrice: Float
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  contractDate: String
+  projectName: String
+  priceLevel: String!
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  finalized: Int
+  finalizedDate: AWSDateTime
+}
+
+input ContractUpdateInput {
+  customerId: String
+  userId: String
+  totalContractProductCost: Float!
+  totalContractProductTax: Float!
+  totalContractProductPrice: Float!
+  totalContactProductPrice: Float!
+  totalContractJobCosts: Float
+  totalContractManHours: Float
+  totalContractCosts: Float
+  totalContractProfit: Float
+  totalContractContingency: Float
+  totalContractPrice: Float
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  contractDate: String
+  projectName: String
+  priceLevel: String!
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  finalized: Int
+  finalizedDate: AWSDateTime
+}
+
+type ContractItem {
+  contractId: String!
+  itemId: String!
+  quantity: Float!
+  cost: Float!
+  markup: Float!
+  price: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  source: String
+  color: String!
+  name: String!
+  rowId: Int!
+  category: String!
+  received: Int
+  receivedDate: AWSDateTime
+}
+
+input ContractItemWhereInput {
+  contractId: String
+  itemId: String
+}
+
+input ContractItemCreateInput {
+  contractId: String!
+  itemId: String!
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  source: String
+  color: String!
+  name: String!
+  rowId: Int!
+  category: String!
+  received: Int
+  receivedDate: AWSDateTime
+}
+
+input ContractItemUpdateInput {
+  itemId: String!
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateUpdated: AWSDateTime
+  source: String
+  color: String!
+  name: String!
+  rowId: Int!
+  category: String!
+  received: Int
+  receivedDate: AWSDateTime
+}
+
+type ContractJobCost {
+  costId: String!
+  contractId: String!
+  name: String!
+  crewQty: Int
+  jobNote: String
+  hours: Float!
+  rate: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  equipQty: Float
+  otherQty: Float
+}
+
+input ContractJobCostWhereInput {
+  contractId: String!
+  costId: String!
+}
+
+input ContractJobCostCreateInput {
+  costId: String!
+  contractId: String!
+  name: String!
+  crewQty: Int
+  jobNote: String
+  hours: Float!
+  rate: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  equipQty: Float
+  otherQty: Float
+}
+
+input ContractJobCostUpdateInput {
+  costId: String
+  name: String
+  crewQty: Int
+  jobNote: String
+  hours: Float
+  rate: Float
+  total: Float
+  dateUpdated: AWSDateTime
+  equipQty: Float
+  otherQty: Float
+}
+
+type ContractTerm {
+  termId: String!
+  contractId: String!
+  description: String!
+  type: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime!
+}
+
+input ContractTermWhereInput {
+  contractId: String!
+  termId: String
+}
+
+input ContractTermCreateInput {
+  contractId: String!
+  termId: String!
+  description: String!
+  type: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime!
+}
+
+input ContractTermUpdateInput {
+  contractId: String
+  termId: String
+  description: String
+  type: String
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+}
+
+type Estimate {
+  estimateId: ID!
+  customerId: String!
+  userId: String!
+  totalEstimateProductCost: Float!
+  totalEstimateProductTax: Float!
+  totalEstimateProductPrice: Float!
+  totalEstimateProductProfit: Float!
+  totalEstimateJobCosts: Float!
+  totalEstimateContingency: Float
+  totalEstimateProfit: Float!
+  totalEstimatePrice: Float!
+  totalEstimateManHours: Float
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  projectName: String
+  priceLevel: String
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+}
+
+input EstimateWhereInput {
+  estimateId: ID
+}
+
+input EstimateCreateInput {
+  estimateId: ID!
+  customerId: String!
+  userId: String!
+  totalEstimateProductCost: Float!
+  totalEstimateProductTax: Float!
+  totalEstimateProductPrice: Float!
+  totalEstimateProductProfit: Float!
+  totalEstimateJobCosts: Float!
+  totalEstimateContingency: Float
+  totalEstimateProfit: Float!
+  totalEstimatePrice: Float!
+  totalEstimateManHours: Float
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  projectName: String
+  priceLevel: String
+}
+
+input EstimateUpdateInput {
+  customerId: String!
+  userId: String!
+  totalEstimateProductCost: Float!
+  totalEstimateProductTax: Float!
+  totalEstimateProductPrice: Float!
+  totalEstimateProductProfit: Float!
+  totalEstimateJobCosts: Float!
+  totalEstimateContingency: Float
+  totalEstimateProfit: Float!
+  totalEstimatePrice: Float!
+  totalEstimateManHours: Float
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  projectName: String
+  priceLevel: String
+}
+
+type EstimateItem {
+  estimateId: String!
+  itemId: String!
+  quantity: Float!
+  cost: Float!
+  markup: Float!
+  price: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  source: String!
+  color: String
+  name: String!
+  rowId: Int!
+  category: String
+}
+
+input EstimateItemWhereInput {
+  estimateId: String
+  itemId: String
+}
+
+input EstimateItemCreateInput {
+  estimateId: String
+  itemId: String
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  source: String
+  color: String
+  name: String
+  rowId: Int
+  category: String
+}
+
+input EstimateItemUpdateInput {
+  estimateId: String
+  itemId: String
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateUpdated: AWSDateTime
+  source: String
+  color: String
+  name: String
+  rowId: Int
+  category: String
+}
+
+type EstimateJobCost {
+  estimateId: String!
+  costId: String!
+  name: String!
+  crewQty: Int
+  jobNote: String
+  hours: Float!
+  rate: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  equipQty: Float
+  otherQty: Float
+}
+
+input EstimateJobCostWhereInput {
+  estimateId: String
+  costId: String
+}
+
+input EstimateJobCostCreateInput {
+  estimateId: String!
+  costId: String!
+  name: String!
+  crewQty: Int
+  jobNote: String
+  hours: Float!
+  rate: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  equipQty: Float
+  otherQty: Float
+}
+
+input EstimateJobCostUpdateInput {
+  estimateId: String
+  costId: String
+  name: String
+  crewQty: Int
+  jobNote: String
+  hours: Float
+  rate: Float
+  total: Float
+  dateUpdated: AWSDateTime
+  equipQty: Float
+  otherQty: Float
+}
+
+type EstimateTerm {
+  termId: String!
+  estimateId: String!
+  description: String!
+  type: String!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime!
+}
+
+input EstimateTermWhereInput {
+  termId: String!
+  estimateId: String!
+}
+
+input EstimateTermCreateInput {
+  estimateId: String!
+  termId: String
+  description: String!
+  type: String!
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+}
+
+input EstimateTermUpdateInput {
+  estimateId: String
+  termId: String
+  description: String
+  type: String
+  dateUpdated: AWSDateTime
+}
+
+type Order {
+  orderId: ID!
+  customerId: String!
+  userId: String!
+  projectName: String
+  priceLevel: String!
+  totalOrderCost: Float!
+  totalOrderTax: Float!
+  totalOrderPrice: Float!
+  totalOrderProfit: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  finalized: Int
+  finalizedDate: AWSDateTime
+}
+
+input OrderWhereInput {
+  orderId: ID
+}
+
+input OrderCreateInput {
+  orderId: ID!
+  customerId: String!
+  userId: String!
+  projectName: String
+  priceLevel: String
+  totalOrderCost: Float
+  totalOrderTax: Float
+  totalOrderPrice: Float
+  totalOrderProfit: Float
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  finalized: Int
+  finalizedDate: AWSDateTime
+}
+
+input OrderUpdateInput {
+  customerId: String
+  userId: String
+  projectName: String
+  priceLevel: String
+  totalOrderCost: Float
+  totalOrderTax: Float
+  totalOrderPrice: Float
+  totalOrderProfit: Float
+  dateUpdated: AWSDateTime
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+  finalized: Int
+  finalizedDate: AWSDateTime
+}
+
+type OrderItem {
+  orderId: String!
+  itemId: String!
+  quantity: Float!
+  cost: Float!
+  markup: Float!
+  price: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  source: String!
+  color: String!
+  name: String!
+  rowId: Int!
+  category: String
+  received: Int
+  receivedDate: AWSDateTime
+}
+
+input OrderItemWhereInput {
+  orderId: String!
+  itemId: String!
+}
+
+input OrderItemCreateInput {
+  orderId: String!
+  itemId: String!
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+  source: String
+  color: String!
+  name: String!
+  rowId: Int
+  category: String
+  received: Int
+  receivedDate: AWSDateTime
+}
+
+input OrderItemUpdateInput {
+  itemId: String
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateUpdated: AWSDateTime
+  source: String
+  color: String
+  name: String
+  rowId: Int
+  category: String
+  received: Int
+  receivedDate: AWSDateTime
+}
+
+type Quote {
+  quoteId: ID!
+  customerId: String!
+  userId: String!
+  projectName: String
+  priceLevel: String!
+  totalQuoteCost: Float!
+  totalQuoteTax: Float!
+  totalQuotePrice: Float!
+  totalQuoteProfit: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+}
+
+input QuoteWhereInput {
+  quoteId: ID!
+}
+
+input QuoteCreateInput {
+  quoteId: String!
+  customerId: String!
+  userId: String!
+  projectName: String
+  priceLevel: String
+  totalQuoteCost: Float
+  totalQuoteTax: Float
+  totalQuotePrice: Float
+  totalQuoteProfit: Float
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+}
+
+input QuoteUpdateInput {
+  customerId: String
+  userId: String
+  projectName: String
+  priceLevel: String
+  totalQuoteCost: Float
+  totalQuoteTax: Float
+  totalQuotePrice: Float
+  totalQuoteProfit: Float
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+  status: String
+  convertedDate: AWSDateTime
+  source: String
+}
+
+type QuoteItem {
+  quoteId: String!
+  itemId: String!
+  quantity: Float!
+  cost: Float!
+  markup: Float!
+  price: Float!
+  total: Float!
+  dateCreated: AWSDateTime!
+  dateUpdated: AWSDateTime
+  source: String!
+  color: String!
+  name: String!
+  rowId: Int!
+  category: String
+}
+
+input QuoteItemWhereInput {
+  quoteId: String!
+  itemId: String!
+}
+
+input QuoteItemCreateInput {
+  quoteId: String!
+  itemId: String!
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateCreated: AWSDateTime
+  dateUpdated: AWSDateTime
+  source: String
+  color: String!
+  name: String!
+  rowId: Int
+  category: String
+}
+
+input QuoteItemUpdateInput {
+  itemId: String
+  quantity: Float
+  cost: Float
+  markup: Float
+  price: Float
+  total: Float
+  dateUpdated: AWSDateTime
+  source: String
+  color: String
+  name: String
+  rowId: Int
+  category: String
+}
