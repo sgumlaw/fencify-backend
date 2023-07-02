@@ -1,0 +1,28 @@
+{
+  "version" : "2018-05-29",
+  "operation" : "UpdateItem",
+  "key": {
+    "customerId" : $util.dynamodb.toDynamoDBJson($context.arguments.customerId)
+  },
+  "update" : {
+    "expression" : "set #name = :name, customerType = :customerType, address = :address, city = :city, state = :state, zipcode = :zipcode, contactName = :contactName, contactEmail = :contactEmail, source = :source, website = :website, phone = :phone, priceLevel = :priceLevel, dateUpdated = :dateUpdated,",
+    "expressionNames" : {
+      "#name" : "name",
+    },
+    "expressionValues" : {
+      ":name" : $util.dynamodb.toDynamoDBJson($context.arguments.data.name),
+      ":customerType" : $util.dynamodb.toDynamoDBJson($context.arguments.data.customerType),
+      ":address" : $util.dynamodb.toDynamoDBJson($context.arguments.data.address),
+      ":city" : $util.dynamodb.toDynamoDBJson($context.arguments.data.city),
+      ":state" : $util.dynamodb.toDynamoDBJson($context.arguments.data.state),
+      ":zipcode" : $util.dynamodb.toDynamoDBJson($context.arguments.data.zipcode),
+      ":contactName" : $util.dynamodb.toDynamoDBJson($context.arguments.data.contactName),
+      ":contactEmail" : $util.dynamodb.toDynamoDBJson($context.arguments.data.contactEmail),
+      ":source" : $util.dynamodb.toDynamoDBJson($context.arguments.data.source),
+      ":website" : $util.dynamodb.toDynamoDBJson($context.arguments.data.website),
+      ":phone" : $util.dynamodb.toDynamoDBJson($context.arguments.data.phone)
+      ":priceLevel" : $util.dynamodb.toDynamoDBJson($context.arguments.data.priceLevel)
+      ":dateUpdated" : $util.dynamodb.toDynamoDBJson($context.arguments.data.dateUpdated)
+    }
+  },  
+}

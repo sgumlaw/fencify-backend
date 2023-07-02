@@ -1,17 +1,10 @@
-#if ($context.arguments.limit > 25)
-    $util.error("Max Request Limit is 25")
-#end
-
 {
     "version" : "2018-05-29",
-    "operation" : "Query",
-    "query" : {
-        "expression" : "list all customers",
-    },
-    "index" : "byCustomerType",
-    "nextToken" : $util.toJson($context.arguments.nextToken),
-    "limit" : $util.toJson($context.arguments.limit),
+    "operation" : "Scan",
+    "index" : "customerId",
     "scanIndexForward" : false,
     "consistentRead" : false,
-    "select" : "ALL_ATTRIBUTES"
+    "select" : "ALL_ATTRIBUTES",
+    "limit" : $util.toJson($context.arguments.limit),
+    "nextToken" : $util.toJson($context.arguments.nextToken),
 }

@@ -1,21 +1,16 @@
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 const DocumentClient = new DynamoDB.DocumentClient();
 const { TransactionTypes } = require('../../lib/constants');
-const ulid = require('ulid')
 
 const { ESTIMATES_TABLE_NAME, ESTIMATE_ITEMS_TABLE_NAME, ESTIMATE_JOB_COSTS_TABLE_NAME, ESTIMATE_TERMS_TABLE_NAME } = process.env
 
 module.exports.handler = async (event) => {
     console.log("Received event {}", JSON.stringify(event, 3));
-    const { data } = event.arguments
-    // let id = ulid.ulid()
-    // const year = new Date().getFullYear()
-    // id = `${year}-${id}`
-    const estimate = data;
+    const estimate = event.arguments.data
     const id = estimate.estimateId;
-    const items = data.estimateItems;
-    const costs = data.estimateCosts;
-    const terms = data.estimateTerms;
+    const items = estimate.estimateItems;
+    const costs = estimate.estimateJobCosts;
+    const terms = estimate.estimateTerms;
 
     const newEstimate = {
         __typename: TransactionTypes.ESTIMATE,
@@ -48,11 +43,16 @@ module.exports.handler = async (event) => {
                 itemId: item.itemId,
                 name: item.name,
                 cost: item.cost,
+                markup: item.markup,
                 price: item.price,
                 quantity: item.quantity,
                 total: item.total,
                 dateCreated: new Date(),
                 dateUpdated: new Date(),
+                source: item.source,
+                color: item.color,
+                rowId: item.rowId,
+                category: item.category,
             }
         })
     });

@@ -1,0 +1,8 @@
+{
+  "version" : "2018-05-29",
+  "operation" : "GetItem",
+  "key" : {
+    "estimatorId" : $util.dynamodb.toDynamoDBJson($context.arguments.estimatorId),
+    "transactionId" : $util.dynamodb.toDynamoDBJson($context.arguments.transactionId)
+  }
+}

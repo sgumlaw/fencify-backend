@@ -57,16 +57,10 @@ mappingTemplates:
     field: listEstimators
     dataSource: EstimatorsTable
   - type: Query
-    field: getEstimatorSpecifications
-    dataSource: EstimatorSpecsTable
-  - type: Query
-    field: getEstimatorSpecifications
+    field: getEstimatorSpec
     dataSource: EstimatorSpecsTable
   - type: Query
     field: getEstimatorLayout
-    dataSource: EstimatorLayoutsTable
-  - type: Query
-    field: listEstimatorLayouts
     dataSource: EstimatorLayoutsTable
   
   - type: Query
@@ -145,200 +139,70 @@ mappingTemplates:
     field: listQuoteItems
     dataSource: QuoteItemsTable
   
-  - type: Query
-    field: getQuoteId
-    dataSource: QuoteIdsTable
-  - type: Query
-    field: listQuoteIds
-    dataSource: QuoteIdsTable
-  - type: Query
-    field: getOrderId
-    dataSource: OrderIdsTable
-  - type: Query
-    field: listOrderIds
-    dataSource: OrderIdsTable
-  - type: Query
-    field: getEstimateId
-    dataSource: EstimateIdsTable
-  - type: Query
-    field: listEstimateIds
-    dataSource: EstimateIdsTable
-  - type: Query
-    field: getContractId
-    dataSource: ContractIdsTable
-  - type: Query
-    field: listContractIds
-    dataSource: ContractIdsTable
-
-
-
-
 
   - type: Mutation
     field: createUser
-    dataSource: userCreateFunction
-    request: false
-    response: false
+    dataSource: UsersTable
   - type: Mutation
     field: updateUser
-    dataSource: userUpdateFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertUser
-    dataSource: userUpsertFunction
-    request: false
-    response: false
+    dataSource: UsersTable
   - type: Mutation
     field: deleteUser
-    dataSource: userDeleteFunction
-    request: false
-    response: false
+    dataSource: UsersTable
   
   - type: Mutation
     field: createCustomer
-    dataSource: customerCreateFunction
-    request: false
-    response: false
+    dataSource: CustomersTable
   - type: Mutation
     field: updateCustomer
-    dataSource: customerUpdateFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertCustomer
-    dataSource: customerUpsertFunction
-    request: false
-    response: false
+    dataSource: CustomersTable
   - type: Mutation
     field: deleteCustomer
-    dataSource: customerDeleteFunction
-    request: false
-    response: false
-  
+    dataSource: CustomersTable
+   
   - type: Mutation
     field: createProduct
-    dataSource: createProductFunction
-    request: false
-    response: false
+    dataSource: ProductsTable
   - type: Mutation
     field: updateProduct
-    dataSource: updateProductFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertProduct
-    dataSource: upsertProductFunction
-    request: false
-    response: false
+    dataSource: ProductsTable
   - type: Mutation
     field: deleteProduct
-    dataSource: deleteProductFunction
-    request: false
-    response: false
+    dataSource: ProductsTable
   
   - type: Mutation
     field: createJobCost
-    dataSource: createJobCostFunction
-    request: false
-    response: false
+    dataSource: JobCostsTable
   - type: Mutation
     field: updateJobCost
-    dataSource: updateJobCostFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertJobCost
-    dataSource: upsertJobCostFunction
-    request: false
-    response: false
+    dataSource: JobCostsTable
   - type: Mutation
     field: deleteJobCost
-    dataSource: deleteJobCostFunction
-    request: false
-    response: false
+    dataSource: JobCostsTable
   
   - type: Mutation
     field: createInstallationTerm
-    dataSource: createInstallationTermFunction
-    request: false
-    response: false
+    dataSource: InstallationTermsTable
   - type: Mutation
     field: updateInstallationTerm
-    dataSource: updateInstallationTermFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertInstallationTerm
-    dataSource: upsertInstallationTermFunction
-    request: false
-    response: false
+    dataSource: InstallationTermsTable
   - type: Mutation
     field: deleteInstallationTerm
-    dataSource: deleteInstallationTermFunction
-    request: false
-    response: false
-
-  - type: Mutation
-    field: createQuoteId
-    dataSource: createQuoteIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: updateQuoteId
-    dataSource: updateQuoteIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertQuoteId
-    dataSource: upsertQuoteIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: deleteQuoteId
-    dataSource: deleteQuoteIdFunction
-    request: false
-    response: false
+    dataSource: InstallationTermsTable
 
   - type: Mutation
     field: createQuote
-    dataSource: quoteCreateFunction
+    dataSource: createQuoteFunction
     request: false
     response: false
   - type: Mutation
     field: updateQuote
-    dataSource: quoteUpdateFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertQuote
-    dataSource: quoteUpsertFunction
+    dataSource: updateQuoteFunction
     request: false
     response: false
   - type: Mutation
     field: deleteQuote
-    dataSource: quoteDeleteFunction
-    request: false
-    response: false
-
-  - type: Mutation
-    field: createOrderId
-    dataSource: createOrderIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: updateOrderId
-    dataSource: updateOrderIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertOrderId
-    dataSource: upsertOrderIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: deleteOrderId
-    dataSource: deleteOrderIdFunction
+    dataSource: deleteQuoteFunction
     request: false
     response: false
 
@@ -353,34 +217,8 @@ mappingTemplates:
     request: false
     response: false
   - type: Mutation
-    field: upsertOrder
-    dataSource: upsertOrderFunction
-    request: false
-    response: false
-  - type: Mutation
     field: deleteOrder
     dataSource: deleteOrderFunction
-    request: false
-    response: false
-
-  - type: Mutation
-    field: createEstimateId
-    dataSource: createEstimateIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: updateEstimateId
-    dataSource: updateEstimateIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertEstimateId
-    dataSource: upsertEstimateIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: deleteEstimateId
-    dataSource: deleteEstimateIdFunction
     request: false
     response: false
 
@@ -395,34 +233,8 @@ mappingTemplates:
     request: false
     response: false
   - type: Mutation
-    field: upsertEstimate
-    dataSource: upsertEstimateFunction
-    request: false
-    response: false
-  - type: Mutation
     field: deleteEstimate
     dataSource: deleteEstimateFunction
-    request: false
-    response: false
-
-  - type: Mutation
-    field: createContractId
-    dataSource: createContractIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: updateContractId
-    dataSource: updateContractIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertContractId
-    dataSource: upsertContractIdFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: deleteContractId
-    dataSource: deleteContractIdFunction
     request: false
     response: false
 
@@ -434,11 +246,6 @@ mappingTemplates:
   - type: Mutation
     field: updateContract
     dataSource: updateContractFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertContract
-    dataSource: upsertContractFunction
     request: false
     response: false
   - type: Mutation
@@ -458,7 +265,7 @@ mappingTemplates:
     request: false
     response: false
   - type: Mutation
-    field: createEstimatorLayout
+    field: createEstimatorSpec
     dataSource: createEstimatorLayoutFunction
     request: false
     response: false
@@ -477,36 +284,19 @@ mappingTemplates:
     dataSource: updateEstimatorLayoutFunction
     request: false
     response: false
-  - type: Mutation
-    field: upsertEstimator
-    dataSource: upsertEstimatorFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertEstimatorSpec
-    dataSource: upsertEstimatorSpecFunction
-    request: false
-    response: false
-  - type: Mutation
-    field: upsertEstimatorLayout
-    dataSource: upsertEstimatorLayoutFunction
-    request: false
-    response: false
+
   - type: Mutation
     field: deleteEstimator
-    dataSource: deleteEstimatorFunction
-    request: false
-    response: false
+    dataSource: EstimatorsTable
+    
   - type: Mutation
     field: deleteEstimatorSpec
-    dataSource: deleteEstimatorSpecFunction
-    request: false
-    response: false
+    dataSource: EstimatorsTable
+    
   - type: Mutation
     field: deleteEstimatorLayout
-    dataSource: deleteEstimatorLayoutFunction
-    request: false
-    response: false
+    dataSource: EstimatorsTable
+    
 
 dataSources:
   - type: NONE
@@ -515,108 +305,89 @@ dataSources:
   #   name: getImageUploadUrlFunction
   #   config:
   #     functionName: getImageUploadUrl
+  - type: AMAZON_DYNAMODB
+    name: UsersTable
+    config:
+      tableName: !Ref UsersTable
+  - type: AMAZON_DYNAMODB
+    name: CustomersTable
+    config:
+      tableName: !Ref CustomersTable
+  - type: AMAZON_DYNAMODB
+    name: ProductsTable
+    config:
+      tableName: !Ref ProductsTable
+  - type: AMAZON_DYNAMODB
+    name: JobCostsTable
+    config:
+      tableName: !Ref JobCostsTable
+  - type: AMAZON_DYNAMODB
+    name: InstallationTermsTable
+    config:
+      tableName: !Ref InstallationTermsTable
+  - type: AMAZON_DYNAMODB
+    name: QuotesTable
+    config:
+      tableName: !Ref QuotesTable
+  - type: AMAZON_DYNAMODB
+    name: QuoteItemsTable
+    config:
+      tableName: !Ref QuoteItemsTable
+  - type: AMAZON_DYNAMODB
+    name: OrdersTable
+    config:
+      tableName: !Ref OrdersTable
+  - type: AMAZON_DYNAMODB
+    name: OrderItemsTable
+    config:
+      tableName: !Ref OrderItemsTable
 
-  - type: AWS_LAMBDA
-    name: userCreateFunction
+  - type: AMAZON_DYNAMODB
+    name: EstimatesTable
     config:
-      functionName: createUser
-  - type: AWS_LAMBDA
-    name: updateUserFunction
+      tableName: !Ref EstimatesTable
+  - type: AMAZON_DYNAMODB
+    name: EstimateItemsTable
     config:
-      functionName: updateUser
-  - type: AWS_LAMBDA
-    name: upsertUserFunction
+      tableName: !Ref EstimateItemsTable
+  - type: AMAZON_DYNAMODB
+    name: EstimateJobCostsTable
     config:
-      functionName: upsertUser
-  - type: AWS_LAMBDA
-    name: deleteUserFunction
+      tableName: !Ref EstimateJobCostsTable
+  - type: AMAZON_DYNAMODB
+    name: EstimateTermsTable
     config:
-      functionName: deleteUser
- 
-  - type: AWS_LAMBDA
-    name: createCustomerFunction
+      tableName: !Ref EstimateTermsTable
+
+  - type: AMAZON_DYNAMODB
+    name: ContractsTable
     config:
-      functionName: createCustomer
-  - type: AWS_LAMBDA
-    name: updateCustomerFunction
+      tableName: !Ref ContractsTable
+  - type: AMAZON_DYNAMODB
+    name: ContractItemsTable
     config:
-      functionName: updateCustomer
-  - type: AWS_LAMBDA
-    name: upsertCustomerFunction
+      tableName: !Ref ContractItemsTable
+  - type: AMAZON_DYNAMODB
+    name: ContractJobCostsTable
     config:
-      functionName: upsertCustomer
-  - type: AWS_LAMBDA
-    name: deleteCustomerFunction
+      tableName: !Ref ContractJobCostsTable
+  - type: AMAZON_DYNAMODB
+    name: ContractTermsTable
     config:
-      functionName: deleteCustomer
- 
-  - type: AWS_LAMBDA
-    name: createProductFunction
-    config:
-      functionName: createProduct
-  - type: AWS_LAMBDA
-    name: updateProductFunction
-    config:
-      functionName: updateProduct
-  - type: AWS_LAMBDA
-    name: upsertProductFunction
-    config:
-      functionName: upsertProduct
-  - type: AWS_LAMBDA
-    name: deleteProductFunction
-    config:
-      functionName: deleteProduct
+      tableName: !Ref ContractTermsTable
   
-  - type: AWS_LAMBDA
-    name: createJobCostFunction
+  - type: AMAZON_DYNAMODB
+    name: EstimatorsTable
     config:
-      functionName: createJobCost
-  - type: AWS_LAMBDA
-    name: updateJobCostFunction
+      tableName: !Ref EstimatorsTable
+  - type: AMAZON_DYNAMODB
+    name: EstimatorSpecsTable
     config:
-      functionName: updateJobCost
-  - type: AWS_LAMBDA
-    name: upsertJobCostFunction
+      tableName: !Ref EstimatorSpecsTable
+  - type: AMAZON_DYNAMODB
+    name: EstimatorLayoutsTable
     config:
-      functionName: upsertJobCost
-  - type: AWS_LAMBDA
-    name: deleteJobCostFunction
-    config:
-      functionName: deleteJobCost
-  
-  - type: AWS_LAMBDA
-    name: createInstallationTermFunction
-    config:
-      functionName: createInstallationTerm
-  - type: AWS_LAMBDA
-    name: updateInstallationTermFunction
-    config:
-      functionName: updateInstallationTerm
-  - type: AWS_LAMBDA
-    name: upsertInstallationTermFunction
-    config:
-      functionName: upsertInstallationTerm
-  - type: AWS_LAMBDA
-    name: deleteInstallationTermFunction
-    config:
-      functionName: deleteInstallationTerm
-  
-  - type: AWS_LAMBDA
-    name: createQuoteIdFunction
-    config:
-      functionName: createQuoteId
-  - type: AWS_LAMBDA
-    name: updateQuoteIdFunction
-    config:
-      functionName: updateQuoteId
-  - type: AWS_LAMBDA
-    name: upsertQuoteIdFunction
-    config:
-      functionName: upsertQuoteId
-  - type: AWS_LAMBDA
-    name: deleteQuoteIdFunction
-    config:
-      functionName: deleteQuoteId
+      tableName: !Ref EstimatorLayoutsTable
   
   - type: AWS_LAMBDA
     name: createQuoteFunction
@@ -627,30 +398,9 @@ dataSources:
     config:
       functionName: updateQuote
   - type: AWS_LAMBDA
-    name: upsertQuoteFunction
-    config:
-      functionName: upsertQuote
-  - type: AWS_LAMBDA
     name: deleteQuoteFunction
     config:
       functionName: deleteQuote
-
-  - type: AWS_LAMBDA
-    name: createOrderIdFunction
-    config:
-      functionName: createOrderId
-  - type: AWS_LAMBDA
-    name: updateOrderIdFunction
-    config:
-      functionName: updateOrderId
-  - type: AWS_LAMBDA
-    name: upsertOrderIdFunction
-    config:
-      functionName: upsertOrderId
-  - type: AWS_LAMBDA
-    name: deleteOrderIdFunction
-    config:
-      functionName: deleteOrderId
  
   - type: AWS_LAMBDA
     name: createOrderFunction
@@ -660,10 +410,6 @@ dataSources:
     name: updateOrderFunction
     config:
       functionName: updateOrder
-  - type: AWS_LAMBDA
-    name: upsertOrderFunction
-    config:
-      functionName: upsertOrder
   - type: AWS_LAMBDA
     name: deleteOrderFunction
     config:
@@ -684,48 +430,15 @@ dataSources:
   - type: AWS_LAMBDA
     name: updateEstimatorFunction
     config:
-      functionName: updateEstimatorSpec
+      functionName: updateEstimator
   - type: AWS_LAMBDA
     name: updateEstimatorSpecFunction
     config:
-      functionName: updateEstimatorLayout
+      functionName: updateEstimatorSpec
   - type: AWS_LAMBDA
     name: updateEstimatorLayoutFunction
     config:
-      functionName: updateEstimator
-  - type: AWS_LAMBDA
-    name: upsertEstimatorFunction
-    config:
-      functionName: upsertEstimator
-  - type: AWS_LAMBDA
-    name: upsertEstimatorFunction
-    config:
-      functionName: upsertEstimatorSpec
-  - type: AWS_LAMBDA
-    name: upsertEstimatorSpecFunction
-    config:
-      functionName: upsertEstimatorLayout
-  - type: AWS_LAMBDA
-    name: deleteEstimatorLayoutFunction
-    config:
-      functionName: deleteEstimator
-
-  - type: AWS_LAMBDA
-    name: createEstimateIdFunction
-    config:
-      functionName: createEstimateId
-  - type: AWS_LAMBDA
-    name: updateEstimateIdFunction
-    config:
-      functionName: updateEstimateId
-  - type: AWS_LAMBDA
-    name: upsertEstimateIdFunction
-    config:
-      functionName: upsertEstimateId
-  - type: AWS_LAMBDA
-    name: deleteEstimateIdFunction
-    config:
-      functionName: deleteIdEstimate
+      functionName: updateEstimatorLayout
   
   - type: AWS_LAMBDA
     name: createEstimateFunction
@@ -736,30 +449,9 @@ dataSources:
     config:
       functionName: updateEstimate
   - type: AWS_LAMBDA
-    name: upsertEstimateFunction
-    config:
-      functionName: upsertEstimate
-  - type: AWS_LAMBDA
     name: deleteEstimateFunction
     config:
       functionName: deleteEstimate
-
-  - type: AWS_LAMBDA
-    name: createContractIdFunction
-    config:
-      functionName: createContractId
-  - type: AWS_LAMBDA
-    name: updateContractIdFunction
-    config:
-      functionName: updateContractId
-  - type: AWS_LAMBDA
-    name: upsertContractIdFunction
-    config:
-      functionName: upsertContractId
-  - type: AWS_LAMBDA
-    name: deleteContractIdFunction
-    config:
-      functionName: deleteContractId
   
   - type: AWS_LAMBDA
     name: createContractFunction
@@ -769,10 +461,6 @@ dataSources:
     name: updateContractFunction
     config:
       functionName: updateContract
-  - type: AWS_LAMBDA
-    name: upsertContractFunction
-    config:
-      functionName: upsertContract
   - type: AWS_LAMBDA
     name: deleteContractFunction
     config:

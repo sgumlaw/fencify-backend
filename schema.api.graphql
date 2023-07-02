@@ -10,59 +10,28 @@ type Mutation {
     data: EstimatorUpdateInput # operation: EstimatorOperationInput
   ): Estimator
 
-  upsertEstimator(
-    create: EstimatorCreateInput!
-    update: EstimatorUpdateInput!
-    where: EstimatorWhereInput!
-  ): Estimator
-
   deleteEstimator(where: EstimatorWhereInput!): Estimator
 
-  createEstimatorSpecifications(
-    data: EstimatorSpecificationsCreateInput!
-  ): EstimatorSpecifications
+  createEstimatorSpec(data: EstimatorSpecCreateInput!): EstimatorSpec
 
-  updateEstimatorSpecifications(
-    where: EstimatorSpecificationsWhereInput!
-    data: EstimatorSpecificationsUpdateInput # operation: EstimatorSpecificationsOperationInput
-  ): EstimatorSpecifications
+  updateEstimatorSpec(
+    where: EstimatorSpecWhereInput!
+    data: EstimatorSpecUpdateInput # operation: EstimatorSpecificationsOperationInput
+  ): EstimatorSpec
 
-  upsertEstimatorSpecifications(
-    create: EstimatorSpecificationsCreateInput!
-    update: EstimatorSpecificationsUpdateInput!
-    where: EstimatorSpecificationsWhereInput!
-  ): EstimatorSpecifications
-
-  deleteEstimatorSpecifications(
-    where: EstimatorSpecificationsWhereInput!
-  ): EstimatorSpecifications
+  deleteEstimatorSpec(where: EstimatorSpecWhereInput!): EstimatorSpec
 
   createContract(data: ContractCreateInput!): Contract
 
-  updateContract(
-    where: ContractWhereInput!
-    data: ContractUpdateInput
-  ): Contract
+  updateContract(contractId: ID!, data: ContractUpdateInput): Contract
 
-  upsertContract(
-    create: ContractCreateInput!
-    update: ContractUpdateInput!
-    where: ContractWhereInput!
-  ): Contract
-
-  deleteContract(where: ContractWhereInput!): Contract
+  deleteContract(contractId: ID!, data: ContractDeleteInput): Contract
 
   createContractItem(data: ContractItemCreateInput!): ContractItem
 
   updateContractItem(
     where: ContractItemWhereInput!
     data: ContractItemUpdateInput
-  ): ContractItem
-
-  upsertContractItem(
-    create: ContractItemCreateInput!
-    update: ContractItemUpdateInput!
-    where: ContractItemWhereInput!
   ): ContractItem
 
   deleteContractItem(where: ContractItemWhereInput!): ContractItem
@@ -74,13 +43,7 @@ type Mutation {
     data: ContractJobCostUpdateInput
   ): ContractJobCost
 
-  upsertContractJobCost(
-    create: ContractJobCostCreateInput!
-    update: ContractJobCostUpdateInput!
-    where: ContractJobCostWhereInput!
-  ): ContractJobCost
-
-  deleteContractJobCost(where: ContractJobCostWhereInput!): ContractJobCost
+  deleteContractJobCost(where: ContractJobCostWhereInput): ContractJobCost
 
   createContractTerm(data: ContractTermCreateInput!): ContractTerm
 
@@ -89,55 +52,25 @@ type Mutation {
     data: ContractTermUpdateInput
   ): ContractTerm
 
-  upsertContractTerm(
-    create: ContractTermCreateInput!
-    update: ContractTermUpdateInput!
-    where: ContractTermWhereInput!
-  ): ContractTerm
-
   deleteContractTerm(where: ContractTermWhereInput!): ContractTerm
 
   createCustomer(data: CustomerCreateInput!): Customer
 
-  updateCustomer(
-    where: CustomerWhereInput!
-    data: CustomerUpdateInput
-  ): Customer
+  updateCustomer(customerId: String!, data: CustomerUpdateInput): Customer
 
-  upsertCustomer(
-    create: CustomerCreateInput!
-    update: CustomerUpdateInput!
-    where: CustomerWhereInput!
-  ): Customer
-
-  deleteCustomer(where: CustomerWhereInput!): Customer
+  deleteCustomer(customerId: String!): Customer
 
   createEstimate(data: EstimateCreateInput!): Estimate
 
-  updateEstimate(
-    where: EstimateWhereInput!
-    data: EstimateUpdateInput
-  ): Estimate
+  updateEstimate(estimateId: String!, data: EstimateUpdateInput): Estimate
 
-  upsertEstimate(
-    create: EstimateCreateInput!
-    update: EstimateUpdateInput!
-    where: EstimateWhereInput!
-  ): Estimate
-
-  deleteEstimate(where: EstimateWhereInput!): Estimate
+  deleteEstimate(estimateId: String!, data: EstimateDeleteInput): Estimate
 
   createEstimateItem(data: EstimateItemCreateInput!): EstimateItem
 
   updateEstimateItem(
     where: EstimateItemWhereInput!
     data: EstimateItemUpdateInput
-  ): EstimateItem
-
-  upsertEstimateItem(
-    create: EstimateItemCreateInput!
-    update: EstimateItemUpdateInput!
-    where: EstimateItemWhereInput!
   ): EstimateItem
 
   deleteEstimateItem(where: EstimateItemWhereInput!): EstimateItem
@@ -149,12 +82,6 @@ type Mutation {
     data: EstimateJobCostUpdateInput
   ): EstimateJobCost
 
-  upsertEstimateJobCost(
-    create: EstimateJobCostCreateInput!
-    update: EstimateJobCostUpdateInput!
-    where: EstimateJobCostWhereInput!
-  ): EstimateJobCost
-
   deleteEstimateJobCost(where: EstimateJobCostWhereInput!): EstimateJobCost
 
   createEstimateTerm(data: EstimateTermCreateInput!): EstimateTerm
@@ -164,52 +91,28 @@ type Mutation {
     data: EstimateTermUpdateInput
   ): EstimateTerm
 
-  upsertEstimateTerm(
-    create: EstimateTermCreateInput!
-    update: EstimateTermUpdateInput!
-    where: EstimateTermWhereInput!
-  ): EstimateTerm
-
   deleteEstimateTerm(where: EstimateTermWhereInput!): EstimateTerm
 
   createInstallationTerm(data: InstallationTermCreateInput!): InstallationTerm
 
   updateInstallationTerm(
-    where: InstallationTermWhereInput!
+    termId: ID!
     data: InstallationTermUpdateInput
   ): InstallationTerm
 
-  upsertInstallationTerm(
-    create: InstallationTermCreateInput!
-    update: InstallationTermUpdateInput!
-    where: InstallationTermWhereInput!
-  ): InstallationTerm
-
-  deleteInstallationTerm(where: InstallationTermWhereInput!): InstallationTerm
+  deleteInstallationTerm(termId: ID!): InstallationTerm
 
   createProduct(data: ProductCreateInput!): Product
 
-  updateProduct(where: ProductWhereInput!, data: ProductUpdateInput): Product
+  updateProduct(itemId: ID!, data: ProductUpdateInput): Product
 
-  upsertProduct(
-    create: ProductCreateInput!
-    update: ProductUpdateInput!
-    where: ProductWhereInput!
-  ): Product
-
-  deleteProduct(where: ProductWhereInput!): Product
+  deleteProduct(itemId: ID!): Product
 
   createJobCost(data: JobCostCreateInput!): JobCost
 
-  updateJobCost(where: JobCostWhereInput!, data: JobCostUpdateInput): JobCost
+  updateJobCost(costId: ID!, data: JobCostUpdateInput): JobCost
 
-  upsertJobCost(
-    create: JobCostCreateInput!
-    update: JobCostUpdateInput!
-    where: JobCostWhereInput!
-  ): JobCost
-
-  deleteJobCost(where: JobCostWhereInput!): JobCost
+  deleteJobCost(costId: ID!): JobCost
 
   createEstimatorLayout(data: EstimatorLayoutCreateInput!): EstimatorLayout
 
@@ -218,49 +121,25 @@ type Mutation {
     data: EstimatorLayoutUpdateInput
   ): EstimatorLayout
 
-  upsertEstimatorLayout(
-    create: EstimatorLayoutCreateInput!
-    update: EstimatorLayoutUpdateInput!
-    where: EstimatorLayoutWhereInput!
-  ): EstimatorLayout
-
   deleteEstimatorLayout(where: EstimatorLayoutWhereInput!): EstimatorLayout
 
   createOrder(data: OrderCreateInput!): Order
 
-  updateOrder(where: OrderWhereInput!, data: OrderUpdateInput): Order
+  updateOrder(orderId: ID!, data: OrderUpdateInput): Order
 
-  upsertOrder(
-    create: OrderCreateInput!
-    update: OrderUpdateInput!
-    where: OrderWhereInput!
-  ): Order
-
-  deleteOrder(where: OrderWhereInput!): Order
+  deleteOrder(orderId: ID!, data: OrderDeleteInput): Order
 
   createOrderItem(data: OrderItemCreateInput!): OrderItem
 
   updateOrderItem(where: OrderItemWhereInput!): OrderItem
 
-  upsertOrderItem(
-    create: OrderItemCreateInput!
-    update: OrderItemUpdateInput!
-    where: OrderItemWhereInput!
-  ): OrderItem
-
   deleteOrderItem(where: OrderItemWhereInput!): OrderItem
 
   createQuote(data: QuoteCreateInput!): Quote
 
-  updateQuote(where: QuoteWhereInput!, data: QuoteUpdateInput): Quote
+  updateQuote(quoteId: ID!, data: QuoteUpdateInput): Quote
 
-  upsertQuote(
-    create: QuoteCreateInput!
-    update: QuoteUpdateInput!
-    where: QuoteWhereInput!
-  ): Quote
-
-  deleteQuote(where: QuoteWhereInput!): Quote
+  deleteQuote(quoteId: ID!, data: QuoteDeleteInput): Quote
 
   createQuoteItem(data: QuoteItemCreateInput!): QuoteItem
 
@@ -269,79 +148,29 @@ type Mutation {
     data: QuoteItemUpdateInput
   ): QuoteItem
 
-  upsertQuoteItem(
-    create: QuoteItemCreateInput!
-    update: QuoteItemUpdateInput!
-    where: QuoteItemWhereInput!
-  ): QuoteItem
-
   deleteQuoteItem(where: QuoteItemWhereInput!): QuoteItem
 
   createUser(data: UserCreateInput!): User
 
   updateUser(where: UserWhereInput!, data: UserUpdateInput): User
 
-  upsertUser(
-    create: UserCreateInput!
-    update: UserUpdateInput!
-    where: UserWhereInput!
-  ): User
-
   deleteUser(where: UserWhereInput!): User
 
   createQuoteId(data: QuoteIdCreateInput!): QuoteId
 
-  updateQuoteId(where: QuoteIdWhereInput!, data: QuoteIdUpdateInput): QuoteId
-
-  upsertQuoteId(
-    create: QuoteIdCreateInput!
-    update: QuoteIdUpdateInput!
-    where: QuoteIdWhereInput!
-  ): QuoteId
-
-  deleteQuoteId(where: QuoteIdWhereInput!): QuoteId
+  deleteQuoteId(quoteId: String!): QuoteId
 
   createOrderId(data: OrderIdCreateInput!): OrderId
 
-  updateOrderId(where: OrderIdWhereInput!, data: OrderIdUpdateInput): OrderId
-
-  upsertOrderId(
-    create: OrderIdCreateInput!
-    update: OrderIdUpdateInput!
-    where: OrderIdWhereInput!
-  ): OrderId
-
-  deleteOrderId(where: OrderIdWhereInput!): OrderId
+  deleteOrderId(orderId: String!): OrderId
 
   createEstimateId(data: EstimateIdCreateInput!): EstimateId
 
-  updateEstimateId(
-    where: EstimateIdWhereInput!
-    data: EstimateIdUpdateInput
-  ): EstimateId
-
-  upsertEstimateId(
-    create: EstimateIdCreateInput!
-    update: EstimateIdUpdateInput!
-    where: EstimateIdWhereInput!
-  ): EstimateId
-
-  deleteEstimateId(where: EstimateIdWhereInput!): EstimateId
+  deleteEstimateId(estimateId: String!): EstimateId
 
   createContractId(data: ContractIdCreateInput!): ContractId
 
-  updateContractId(
-    where: ContractIdWhereInput!
-    data: ContractIdUpdateInput
-  ): ContractId
-
-  upsertContractId(
-    create: ContractIdCreateInput!
-    update: ContractIdUpdateInput!
-    where: ContractIdWhereInput!
-  ): ContractId
-
-  deleteContractId(where: ContractIdWhereInput!): ContractId
+  deleteContractId(contractId: ID!): ContractId
 }
 
 type Query {
@@ -349,31 +178,35 @@ type Query {
 
   getEstimator(where: EstimatorWhereInput!): Estimator
 
-  listEstimators(where: EstimatorWhereInput, skip: Int, take: Int): [Estimator]
+  listEstimators(
+    where: EstimatorWhereInput
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): EstimatorsPage!
 
   # countEstimators(where: EstimatorWhereInput, skip: Int, take: Int): Int
 
-  getEstimatorSpecifications(
-    where: EstimatorSpecificationsWhereInput!
-  ): EstimatorSpecifications
-
-  getEstimatorSpecifications(
-    where: EstimatorSpecificationsWhereInput
-    skip: Int
-    take: Int
-  ): [EstimatorSpecifications]
+  getEstimatorSpec(where: EstimatorSpecWhereInput!): EstimatorSpec
 
   # countEstimatorSpecifications(
-  #   where: EstimatorSpecificationsWhereInput
+  #   where: EstimatorSpecWhereInput
   #   skip: Int
   #   take: Int
   # ): Int
 
-  getContract(where: ContractWhereInput!): Contract
+  getContract(contractId: ID!): Contract
 
-  listContracts(where: ContractWhereInput, skip: Int, take: Int): [Contract]
+  listContracts(
+    contractId: ID
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): ContractsPage!
   #
-  # countContracts(where: ContractWhereInput, skip: Int, take: Int): Int
+  # countContracts(contractId: ID, skip: Int, take: Int): Int
 
   getContractItem(where: ContractItemWhereInput!): ContractItem
 
@@ -381,7 +214,9 @@ type Query {
     where: ContractItemWhereInput
     skip: Int
     take: Int
-  ): [ContractItem]
+    limit: Int
+    nextToken: String
+  ): ContractItemsPage!
 
   # countContractItems(where: ContractItemWhereInput, skip: Int, take: Int): Int
 
@@ -391,7 +226,9 @@ type Query {
     where: ContractJobCostWhereInput
     skip: Int
     take: Int
-  ): [ContractJobCost]
+    limit: Int
+    nextToken: String
+  ): ContractJobCostsPage!
 
   # countContractJobCosts(
   #   where: ContractJobCostWhereInput
@@ -405,21 +242,35 @@ type Query {
     where: ContractTermWhereInput!
     skip: Int
     take: Int
-  ): [ContractTerm]
+    limit: Int
+    nextToken: String
+  ): ContractTermsPage!
 
   # countContractTerms(where: ContractTermWhereInput, skip: Int, take: Int): Int
 
-  getCustomer(where: CustomerWhereInput!): Customer
+  getCustomer(customerId: String!): Customer
 
-  listCustomers(where: CustomerWhereInput, skip: Int, take: Int): [Customer]
+  listCustomers(
+    customerId: String
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): CustomersPage!
 
-  # countCustomers(where: CustomerWhereInput, skip: Int, take: Int): Int
+  # countCustomers(customerId: String, skip: Int, take: Int): Int
 
-  getEstimate(where: EstimateWhereInput!): Estimate
+  getEstimate(estimateId: String!): Estimate
 
-  listEstimates(where: EstimateWhereInput, skip: Int, take: Int): [Estimate]
+  listEstimates(
+    estimateId: String
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): EstimatesPage!
 
-  # countEstimates(where: EstimateWhereInput, skip: Int, take: Int): Int
+  # countEstimates(estimateId: String, skip: Int, take: Int): Int
 
   getEstimateItem(where: EstimateItemWhereInput!): EstimateItem
 
@@ -427,7 +278,9 @@ type Query {
     where: EstimateItemWhereInput
     skip: Int
     take: Int
-  ): [EstimateItem]
+    limit: Int
+    nextToken: String
+  ): EstimateItemsPage!
 
   # countEstimateItems(where: EstimateItemWhereInput, skip: Int, take: Int): Int
 
@@ -437,7 +290,9 @@ type Query {
     where: EstimateJobCostWhereInput
     skip: Int
     take: Int
-  ): [EstimateJobCost]
+    limit: Int
+    nextToken: String
+  ): EstimateJobCostsPage!
 
   # countEstimateJobCosts(
   #   where: EstimateJobCostWhereInput
@@ -451,43 +306,53 @@ type Query {
     where: EstimateTermWhereInput
     skip: Int
     take: Int
-  ): [EstimateTerm]
+    limit: Int
+    nextToken: String
+  ): EstimateTermsPage!
 
   # countEstimateTerms(where: EstimateTermWhereInput, skip: Int, take: Int): Int
 
-  getInstallationTerm(where: InstallationTermWhereInput!): InstallationTerm
+  getInstallationTerm(termId: ID!): InstallationTerm
 
   listInstallationTerms(
-    where: InstallationTermWhereInput
+    termId: ID
     skip: Int
     take: Int
-  ): [InstallationTerm]
+    limit: Int
+    nextToken: String
+  ): InstallationTermsPage!
 
   # countInstallationTerms(
-  #   where: InstallationTermWhereInput
+  #   termId: ID!
   #   skip: Int
   #   take: Int
   # ): Int
 
-  getProduct(where: ProductWhereInput!): Product
+  getProduct(itemId: ID!): Product
 
-  listProducts(where: ProductWhereInput, skip: Int, take: Int): [Product]
-
-  # countProducts(where: ProductWhereInput, skip: Int, take: Int): Int
-
-  getJobCost(where: JobCostWhereInput!): JobCost
-
-  listJobCosts(where: JobCostWhereInput, skip: Int, take: Int): [JobCost]
-
-  # countJobCosts(where: JobCostWhereInput, skip: Int, take: Int): Int
-
-  getEstimatorLayout(where: EstimatorLayoutWhereInput!): EstimatorLayout
-
-  listEstimatorLayouts(
-    where: EstimatorLayoutWhereInput
+  listProducts(
+    itemId: ID
     skip: Int
     take: Int
-  ): [EstimatorLayout]
+    limit: Int
+    nextToken: String
+  ): ProductsPage!
+
+  # countProducts(itemId: ID, skip: Int, take: Int): Int
+
+  getJobCost(costId: ID!): JobCost
+
+  listJobCosts(
+    costId: ID
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): JobCostsPage!
+
+  # countJobCosts(costId: ID, skip: Int, take: Int): Int
+
+  getEstimatorLayout(where: EstimatorLayoutWhereInput!): EstimatorLayout
 
   # countEstimatorLayouts(
   #   where: EstimatorLayoutWhereInput
@@ -495,57 +360,104 @@ type Query {
   #   take: Int
   # ): Int
 
-  getOrder(where: OrderWhereInput!): Order
+  getOrder(orderId: ID!): Order
 
-  listOrders(where: OrderWhereInput, skip: Int, take: Int): [Order]
+  listOrders(
+    orderId: ID
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): OrdersPage!
 
-  # countOrders(where: OrderWhereInput, skip: Int, take: Int): Int
+  # countOrders(orderId: ID, skip: Int, take: Int): Int
 
   getOrderItem(where: OrderItemWhereInput!): OrderItem
+  getOrderItemsByOrderId(orderId: ID!): OrderItemsPage
 
-  listOrderItems(where: OrderItemWhereInput, skip: Int, take: Int): [OrderItem]
+  listOrderItems(
+    where: OrderItemWhereInput
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): OrderItemsPage!
 
   # countOrderItems(where: OrderItemWhereInput, skip: Int, take: Int): Int
 
-  getQuote(where: QuoteWhereInput!): Quote
+  getQuote(quoteId: ID!): Quote
 
-  listQuotes(where: QuoteWhereInput, skip: Int, take: Int): [Quote]
+  listQuotes(
+    quoteId: ID
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): QuotesPage!
 
-  # countQuotes(where: QuoteWhereInput, skip: Int, take: Int): Int
+  # countQuotes(quoteId: ID, skip: Int, take: Int): Int
 
   getQuoteItem(where: QuoteItemWhereInput!): QuoteItem
 
-  listQuoteItems(where: QuoteItemWhereInput, skip: Int, take: Int): [QuoteItem]
+  listQuoteItems(
+    where: QuoteItemWhereInput
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): QuoteItemsPage!
 
   # countQuoteItems(where: QuoteItemWhereInput, skip: Int, take: Int): Int
 
   getUser(where: UserWhereInput!): User
 
-  listUsers(where: UserWhereInput, skip: Int, take: Int): [User]
+  listUsers(
+    where: UserWhereInput
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): UsersPage!
 
-  getQuoteId(where: QuoteIdWhereInput!): QuoteId
+  getQuoteId(quoteId: String!): QuoteId
 
-  listQuoteIds(where: QuoteIdWhereInput, skip: Int, take: Int): [QuoteId]
+  listQuoteIds(
+    quoteId: String
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): QuoteIdsPage!
 
-  getOrderId(where: OrderIdWhereInput!): OrderId
+  getOrderId(orderId: String!): OrderId
 
-  listOrderIds(where: OrderIdWhereInput, skip: Int, take: Int): [OrderId]
+  listOrderIds(
+    orderId: String
+    skip: Int
+    take: Int
+    limit: Int
+    nextToken: String
+  ): OrderIdsPage!
 
-  getEstimateId(where: EstimateIdWhereInput!): EstimateId
+  getEstimateId(estimateId: String!): EstimateId
 
   listEstimateIds(
-    where: EstimateIdWhereInput
+    estimateId: String
     skip: Int
     take: Int
-  ): [EstimateId]
+    limit: Int
+    nextToken: String
+  ): EstimateIdsPage!
 
-  getContractId(where: ContractIdWhereInput!): ContractId
+  getContractId(contractId: ID!): ContractId
 
   listContractIds(
-    where: ContractIdWhereInput
+    contractId: ID
     skip: Int
     take: Int
-  ): [ContractId]
+    limit: Int
+    nextToken: String
+  ): ContractIdsPage!
 
   # countUsers(where: UserWhereInput, skip: Int, take: Int): Int
 }
@@ -565,6 +477,10 @@ type User {
   birthdate: AWSDate
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
+}
+type UsersPage {
+  users: [User]
+  nextToken: String
 }
 
 input UserWhereInput {
@@ -619,9 +535,9 @@ type Customer {
   phone: String
   priceLevel: String
 }
-
-input CustomerWhereInput {
-  customerId: String!
+type CustomersPage {
+  customers: [Customer]
+  nextToken: String
 }
 
 input CustomerCreateInput {
@@ -691,9 +607,9 @@ type Product {
   hardwareFunction: String
   func: String
 }
-
-input ProductWhereInput {
-  itemId: ID!
+type ProductsPage {
+  products: [Product]
+  nextToken: String
 }
 
 input ProductCreateInput {
@@ -764,82 +680,66 @@ input ProductUpdateInput {
 }
 
 type QuoteId {
-  id: ID!
   quoteId: String!
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
 }
-input QuoteIdWhereInput {
-  quoteId: String!
+type QuoteIdsPage {
+  quoteIds: [QuoteId]
+  nextToken: String
 }
+
 input QuoteIdCreateInput {
-  id: ID!
   quoteId: String!
   dateCreated: AWSDateTime!
-  dateUpdated: AWSDateTime
-}
-input QuoteIdUpdateInput {
-  quoteId: String!
   dateUpdated: AWSDateTime
 }
 
 type OrderId {
-  id: ID!
   orderId: String!
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
 }
-input OrderIdWhereInput {
-  orderId: String!
+type OrderIdsPage {
+  orderIds: [OrderId]
+  nextToken: String
 }
+
 input OrderIdCreateInput {
-  id: ID!
   orderId: String!
   dateCreated: AWSDateTime!
-  dateUpdated: AWSDateTime
-}
-input OrderIdUpdateInput {
-  orderId: String!
   dateUpdated: AWSDateTime
 }
 
 type EstimateId {
-  id: ID!
   estimateId: String!
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
 }
-input EstimateIdWhereInput {
-  estimateId: String!
+type EstimateIdsPage {
+  estimateIds: [EstimateId]
+  nextToken: String
 }
+
 input EstimateIdCreateInput {
-  id: ID!
   estimateId: String!
   dateCreated: AWSDateTime!
-  dateUpdated: AWSDateTime
-}
-input EstimateIdUpdateInput {
-  estimateId: String!
   dateUpdated: AWSDateTime
 }
 
 type ContractId {
-  id: ID!
   contractId: String!
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
 }
-input ContractIdWhereInput {
-  contractId: String!
+type ContractIdsPage {
+  contractIds: [ContractId]
+  nextToken: String
 }
+
 input ContractIdCreateInput {
-  id: ID!
   contractId: String!
   dateCreated: AWSDateTime!
-  dateUpdated: AWSDateTime
-}
-input ContractIdUpdateInput {
-  contractId: String!
   dateUpdated: AWSDateTime
 }
 
@@ -853,9 +753,9 @@ type JobCost {
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
 }
-
-input JobCostWhereInput {
-  costId: ID!
+type JobCostsPage {
+  jobCosts: [JobCost]
+  nextToken: String
 }
 
 input JobCostCreateInput {
@@ -887,9 +787,9 @@ type InstallationTerm {
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime!
 }
-
-input InstallationTermWhereInput {
-  termId: ID
+type InstallationTermsPage {
+  installationTerms: [InstallationTerm]
+  nextToken: String
 }
 
 input InstallationTermCreateInput {
@@ -917,6 +817,10 @@ type Estimator {
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
 }
+type EstimatorsPage {
+  estimators: [Estimator]
+  nextToken: String
+}
 
 input EstimatorWhereInput {
   estimatorId: String
@@ -935,7 +839,7 @@ input EstimatorUpdateInput {
   dateUpdated: AWSDateTime
 }
 
-type EstimatorSpecifications {
+type EstimatorSpec {
   estimatorId: String!
   transactionId: String!
   class: String
@@ -991,12 +895,12 @@ type EstimatorSpecifications {
   dateUpdated: AWSDateTime
 }
 
-input EstimatorSpecificationsWhereInput {
+input EstimatorSpecWhereInput {
   estimatorId: String!
   transactionId: String!
 }
 
-input EstimatorSpecificationsCreateInput {
+input EstimatorSpecCreateInput {
   estimatorId: String!
   transactionId: String!
   class: String
@@ -1052,7 +956,7 @@ input EstimatorSpecificationsCreateInput {
   dateUpdated: AWSDateTime
 }
 
-input EstimatorSpecificationsUpdateInput {
+input EstimatorSpecUpdateInput {
   estimatorId: String!
   transactionId: String!
   class: String
@@ -1135,6 +1039,7 @@ input EstimatorLayoutCreateInput {
   totalCorners: Int
   totalHookups: Int
   totalTieIns: Int
+  runsArray: [Int]
   dateCreated: AWSDateTime
   dateUpdated: AWSDateTime
 }
@@ -1148,6 +1053,7 @@ input EstimatorLayoutUpdateInput {
   totalCorners: Int
   totalHookups: Int
   totalTieIns: Int
+  runsArray: [Int]
   dateUpdated: AWSDateTime
 }
 
@@ -1176,9 +1082,9 @@ type Contract {
   finalized: Int
   finalizedDate: AWSDateTime
 }
-
-input ContractWhereInput {
-  contractId: String
+type ContractsPage {
+  contracts: [Contract]
+  nextToken: String
 }
 
 input ContractCreateInput {
@@ -1205,6 +1111,9 @@ input ContractCreateInput {
   source: String
   finalized: Int
   finalizedDate: AWSDateTime
+  contractItems: [ContractItemCreateInput]
+  contractJobCosts: [ContractJobCostCreateInput]
+  contractTerms: [ContractTermCreateInput]
 }
 
 input ContractUpdateInput {
@@ -1230,6 +1139,15 @@ input ContractUpdateInput {
   source: String
   finalized: Int
   finalizedDate: AWSDateTime
+  contractItems: [ContractItemUpdateInput]
+  contractJobCosts: [ContractJobCostUpdateInput]
+  contractTerms: [ContractTermUpdateInput]
+}
+
+input ContractDeleteInput {
+  itemIds: [String]
+  costIds: [String]
+  termIds: [String]
 }
 
 type ContractItem {
@@ -1249,6 +1167,11 @@ type ContractItem {
   category: String!
   received: Int
   receivedDate: AWSDateTime
+}
+
+type ContractItemsPage {
+  contractItems: [ContractItem]
+  nextToken: String
 }
 
 input ContractItemWhereInput {
@@ -1306,6 +1229,10 @@ type ContractJobCost {
   equipQty: Float
   otherQty: Float
 }
+type ContractJobCostsPage {
+  contractJobCosts: [ContractJobCost]
+  nextToken: String
+}
 
 input ContractJobCostWhereInput {
   contractId: String!
@@ -1347,6 +1274,10 @@ type ContractTerm {
   type: String!
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime!
+}
+type ContractTermsPage {
+  contractTerms: [ContractTerm]
+  nextToken: String
 }
 
 input ContractTermWhereInput {
@@ -1393,9 +1324,9 @@ type Estimate {
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime
 }
-
-input EstimateWhereInput {
-  estimateId: ID
+type EstimatesPage {
+  estimates: [Estimate]
+  nextToken: String
 }
 
 input EstimateCreateInput {
@@ -1416,6 +1347,9 @@ input EstimateCreateInput {
   source: String
   projectName: String
   priceLevel: String
+  estimateItems: [EstimateItemCreateInput]
+  estimateJobCosts: [EstimateJobCostCreateInput]
+  estimateTerms: [EstimateTermCreateInput]
 }
 
 input EstimateUpdateInput {
@@ -1435,6 +1369,15 @@ input EstimateUpdateInput {
   source: String
   projectName: String
   priceLevel: String
+  estimateItems: [EstimateItemUpdateInput]
+  estimateJobCosts: [EstimateJobCostUpdateInput]
+  estimateTerms: [EstimateTermUpdateInput]
+}
+
+input EstimateDeleteInput {
+  itemIds: [String]
+  costIds: [String]
+  termIds: [String]
 }
 
 type EstimateItem {
@@ -1452,6 +1395,10 @@ type EstimateItem {
   name: String!
   rowId: Int!
   category: String
+}
+type EstimateItemsPage {
+  estimateItems: [EstimateItem]
+  nextToken: String
 }
 
 input EstimateItemWhereInput {
@@ -1506,6 +1453,10 @@ type EstimateJobCost {
   equipQty: Float
   otherQty: Float
 }
+type EstimateJobCostsPage {
+  estimateJobCosts: [EstimateJobCost]
+  nextToken: String
+}
 
 input EstimateJobCostWhereInput {
   estimateId: String
@@ -1549,6 +1500,10 @@ type EstimateTerm {
   dateCreated: AWSDateTime!
   dateUpdated: AWSDateTime!
 }
+type EstimateTermsPage {
+  estimateTerms: [EstimateTerm]
+  nextToken: String
+}
 
 input EstimateTermWhereInput {
   termId: String!
@@ -1590,9 +1545,9 @@ type Order {
   finalized: Int
   finalizedDate: AWSDateTime
 }
-
-input OrderWhereInput {
-  orderId: ID
+type OrdersPage {
+  orders: [Order]
+  nextToken: String
 }
 
 input OrderCreateInput {
@@ -1612,6 +1567,7 @@ input OrderCreateInput {
   source: String
   finalized: Int
   finalizedDate: AWSDateTime
+  orderItems: [OrderItemCreateInput]
 }
 
 input OrderUpdateInput {
@@ -1629,6 +1585,11 @@ input OrderUpdateInput {
   source: String
   finalized: Int
   finalizedDate: AWSDateTime
+  orderItems: [OrderItemUpdateInput]
+}
+
+input OrderDeleteInput {
+  itemIds: [String]
 }
 
 type OrderItem {
@@ -1648,6 +1609,10 @@ type OrderItem {
   category: String
   received: Int
   receivedDate: AWSDateTime
+}
+type OrderItemsPage {
+  orderItems: [OrderItem]
+  nextToken: String
 }
 
 input OrderItemWhereInput {
@@ -1707,9 +1672,9 @@ type Quote {
   convertedDate: AWSDateTime
   source: String
 }
-
-input QuoteWhereInput {
-  quoteId: ID!
+type QuotesPage {
+  quotes: [Quote]
+  nextToken: String
 }
 
 input QuoteCreateInput {
@@ -1727,6 +1692,7 @@ input QuoteCreateInput {
   status: String
   convertedDate: AWSDateTime
   source: String
+  quoteItems: [QuoteItemCreateInput]
 }
 
 input QuoteUpdateInput {
@@ -1743,6 +1709,10 @@ input QuoteUpdateInput {
   status: String
   convertedDate: AWSDateTime
   source: String
+  quoteItems: [QuoteItemCreateInput]
+}
+input QuoteDeleteInput {
+  itemIds: [String]
 }
 
 type QuoteItem {
@@ -1760,6 +1730,10 @@ type QuoteItem {
   name: String!
   rowId: Int!
   category: String
+}
+type QuoteItemsPage {
+  quoteItems: [QuoteItem]
+  nextToken: String
 }
 
 input QuoteItemWhereInput {

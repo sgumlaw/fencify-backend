@@ -5,8 +5,7 @@ const { TransactionTypes, TransactionItems } = require('../../lib/constants');
 const { ORDERS_TABLE_NAME, ORDER_ITEMS_TABLE_NAME } = process.env
 
 module.exports.handler = async (event) => {
-    const { data } = event.arguments;
-    const order = data;
+    const order = event.arguments.data;
     const id = order.orderId;
     const items = order.orderItems;
     
@@ -23,6 +22,8 @@ module.exports.handler = async (event) => {
         status: order.status,
         convertedDate: order.convertedDate,
         source: order.source,
+        finalized: order.finalized,
+        finalizedDate: order.finalizedDate,
         dateCreated: new Date(),
         dateUpdated: new Date(),
         userId: order.userId,
@@ -35,11 +36,17 @@ module.exports.handler = async (event) => {
                 itemId: item.itemId,
                 name: item.name,
                 cost: item.cost,
+                markup: item.markup,
                 price: item.price,
                 quantity: item.quantity,
                 total: item.total,
                 dateCreated: new Date(),
                 dateUpdated: new Date(),
+                source: item.source,
+                rowId: item.rowId,
+                category: item.category,
+                received: item.received,
+                receivedDate: item.receivedDate,
             }
         })
     });

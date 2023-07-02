@@ -289,42 +289,60 @@ type Mutation {
   deleteQuote(where: QuoteWhereInput!): Quote
   deleteQuoteItem(where: QuoteItemWhereInput!): QuoteItem
   deleteUser(where: UserWhereInput!): User
-  updateContract(data: ContractUpdateInput, where: ContractWhereInput!): Contract
-  updateContractItem(data: ContractItemUpdateInput, where: ContractItemWhereInput!): ContractItem
-  updateContractJobcost(data: ContractJobcostUpdateInput, where: ContractJobcostWhereInput!): ContractJobcost
-  updateContractTerm(data: ContractTermUpdateInput, where: ContractTermWhereInput!): ContractTerm
-  updateCustomer(data: CustomerUpdateInput, where: CustomerWhereInput!): Customer
-  updateEstimate(data: EstimateUpdateInput, where: EstimateWhereInput!): Estimate
-  updateEstimateItem(data: EstimateItemUpdateInput, where: EstimateItemWhereInput!): EstimateItem
-  updateEstimateJobcost(data: EstimateJobCostUpdateInput, where: EstimateJobCostWhereInput!): EstimateJobcost
-  updateEstimateTerm(data: EstimateTermUpdateInput, where: EstimateTermWhereInput!): EstimateTerm
-  updateEstimatorLayout(data: EstimatorLayoutUpdateInput, where: EstimatorLayoutWhereInput!): EstimatorLayout
-  updateInstallationTerm(data: InstallationTermUpdateInput, where: InstallationTermWhereInput!): InstallationTerm
+  updateContract(
+    data: ContractUpdateInput
+    where: ContractWhereInput!
+  ): Contract
+  updateContractItem(
+    data: ContractItemUpdateInput
+    where: ContractItemWhereInput!
+  ): ContractItem
+  updateContractJobcost(
+    data: ContractJobcostUpdateInput
+    where: ContractJobcostWhereInput!
+  ): ContractJobcost
+  updateContractTerm(
+    data: ContractTermUpdateInput
+    where: ContractTermWhereInput!
+  ): ContractTerm
+  updateCustomer(
+    data: CustomerUpdateInput
+    where: CustomerWhereInput!
+  ): Customer
+  updateEstimate(
+    data: EstimateUpdateInput
+    where: EstimateWhereInput!
+  ): Estimate
+  updateEstimateItem(
+    data: EstimateItemUpdateInput
+    where: EstimateItemWhereInput!
+  ): EstimateItem
+  updateEstimateJobcost(
+    data: EstimateJobCostUpdateInput
+    where: EstimateJobCostWhereInput!
+  ): EstimateJobcost
+  updateEstimateTerm(
+    data: EstimateTermUpdateInput
+    where: EstimateTermWhereInput!
+  ): EstimateTerm
+  updateEstimatorLayout(
+    data: EstimatorLayoutUpdateInput
+    where: EstimatorLayoutWhereInput!
+  ): EstimatorLayout
+  updateInstallationTerm(
+    data: InstallationTermUpdateInput
+    where: InstallationTermWhereInput!
+  ): InstallationTerm
   updateJobCost(data: JobCostUpdateInput, where: JobCostWhereInput!): JobCost
   updateOrder(data: OrderUpdateInput, where: OrderWhereInput!): Order
   updateOrderItem(where: OrderItemWhereInput!): OrderItem
   updateProduct(data: ProductUpdateInput, where: ProductWhereInput!): Product
   updateQuote(data: QuoteUpdateInput, where: QuoteWhereInput!): Quote
-  updateQuoteItem(data: QuoteItemUpdateInput, where: QuoteItemWhereInput!): QuoteItem
+  updateQuoteItem(
+    data: QuoteItemUpdateInput
+    where: QuoteItemWhereInput!
+  ): QuoteItem
   updateUser(data: UserUpdateInput, where: UserWhereInput!): User
-  upsertContract(create: ContractCreateInput!, update: ContractUpdateInput!, where: ContractWhereInput!): Contract
-  upsertContractItem(create: ContractItemCreateInput!, update: ContractItemUpdateInput!, where: ContractItemWhereInput!): ContractItem
-  upsertContractJobcost(create: ContractJobcostCreateInput!, update: ContractJobcostUpdateInput!, where: ContractJobcostWhereInput!): ContractJobcost
-  upsertContractTerm(create: ContractTermCreateInput!, update: ContractTermUpdateInput!, where: ContractTermWhereInput!): ContractTerm
-  upsertCustomer(create: CustomerCreateInput!, update: CustomerUpdateInput!, where: CustomerWhereInput!): Customer
-  upsertEstimate(create: EstimateCreateInput!, update: EstimateUpdateInput!, where: EstimateWhereInput!): Estimate
-  upsertEstimateItem(create: EstimateItemCreateInput!, update: EstimateItemUpdateInput!, where: EstimateItemWhereInput!): EstimateItem
-  upsertEstimateJobcost(create: EstimateJobCostCreateInput!, update: EstimateJobCostUpdateInput!, where: EstimateJobCostWhereInput!): EstimateJobcost
-  upsertEstimateTerm(create: EstimateTermCreateInput!, update: EstimateTermUpdateInput!, where: EstimateTermWhereInput!): EstimateTerm
-  upsertEstimatorLayout(create: EstimatorLayoutCreateInput!, update: EstimatorLayoutUpdateInput!, where: EstimatorLayoutWhereInput!): EstimatorLayout
-  upsertInstallationTerm(create: InstallationTermCreateInput!, update: InstallationTermUpdateInput!, where: InstallationTermWhereInput!): InstallationTerm
-  upsertJobCost(create: JobCostCreateInput!, update: JobCostUpdateInput!, where: JobCostWhereInput!): JobCost
-  upsertOrder(create: OrderCreateInput!, update: OrderUpdateInput!, where: OrderWhereInput!): Order
-  upsertOrderItem(create: OrderItemCreateInput!, update: OrderItemUpdateInput!, where: OrderItemWhereInput!): OrderItem
-  upsertProduct(create: ProductCreateInput!, update: ProductUpdateInput!, where: ProductWhereInput!): Product
-  upsertQuote(create: QuoteCreateInput!, update: QuoteUpdateInput!, where: QuoteWhereInput!): Quote
-  upsertQuoteItem(create: QuoteItemCreateInput!, update: QuoteItemUpdateInput!, where: QuoteItemWhereInput!): QuoteItem
-  upsertUser(create: UserCreateInput!, update: UserUpdateInput!, where: UserWhereInput!): User
 }
 
 type Order {
@@ -401,16 +419,32 @@ type Product {
 
 type Query {
   countContractItems(skip: Int, take: Int, where: ContractItemWhereInput): Int
-  countContractJobcosts(skip: Int, take: Int, where: ContractJobcostWhereInput): Int
+  countContractJobcosts(
+    skip: Int
+    take: Int
+    where: ContractJobcostWhereInput
+  ): Int
   countContractTerms(skip: Int, take: Int, where: ContractTermWhereInput): Int
   countContracts(skip: Int, take: Int, where: ContractWhereInput): Int
   countCustomers(skip: Int, take: Int, where: CustomerWhereInput): Int
   countEstimateItems(skip: Int, take: Int, where: EstimateItemWhereInput): Int
-  countEstimateJobcosts(skip: Int, take: Int, where: EstimateJobCostWhereInput): Int
+  countEstimateJobcosts(
+    skip: Int
+    take: Int
+    where: EstimateJobCostWhereInput
+  ): Int
   countEstimateTerms(skip: Int, take: Int, where: EstimateTermWhereInput): Int
   countEstimates(skip: Int, take: Int, where: EstimateWhereInput): Int
-  countEstimatorLayouts(skip: Int, take: Int, where: EstimatorLayoutWhereInput): Int
-  countInstallationTerms(skip: Int, take: Int, where: InstallationTermWhereInput): Int
+  countEstimatorLayouts(
+    skip: Int
+    take: Int
+    where: EstimatorLayoutWhereInput
+  ): Int
+  countInstallationTerms(
+    skip: Int
+    take: Int
+    where: InstallationTermWhereInput
+  ): Int
   countJobCosts(skip: Int, take: Int, where: JobCostWhereInput): Int
   countOrderItems(skip: Int, take: Int, where: OrderItemWhereInput): Int
   countOrders(skip: Int, take: Int, where: OrderWhereInput): Int
@@ -437,17 +471,49 @@ type Query {
   getQuote(where: QuoteWhereInput!): Quote
   getQuoteItem(where: QuoteItemWhereInput!): QuoteItem
   getUser(where: UserWhereInput!): User
-  listContractItems(skip: Int, take: Int, where: ContractItemWhereInput): [ContractItem]
-  listContractJobcosts(skip: Int, take: Int, where: ContractJobcostWhereInput): [ContractJobcost]
-  listContractTerms(skip: Int, take: Int, where: ContractTermWhereInput!): [ContractTerm]
+  listContractItems(
+    skip: Int
+    take: Int
+    where: ContractItemWhereInput
+  ): [ContractItem]
+  listContractJobcosts(
+    skip: Int
+    take: Int
+    where: ContractJobcostWhereInput
+  ): [ContractJobcost]
+  listContractTerms(
+    skip: Int
+    take: Int
+    where: ContractTermWhereInput!
+  ): [ContractTerm]
   listContracts(skip: Int, take: Int, where: ContractWhereInput): [Contract]
   listCustomers(skip: Int, take: Int, where: CustomerWhereInput): [Customer]
-  listEstimateItems(skip: Int, take: Int, where: EstimateItemWhereInput): [EstimateItem]
-  listEstimateJobcosts(skip: Int, take: Int, where: EstimateJobCostWhereInput): [EstimateJobcost]
-  listEstimateTerms(skip: Int, take: Int, where: EstimateTermWhereInput): [EstimateTerm]
+  listEstimateItems(
+    skip: Int
+    take: Int
+    where: EstimateItemWhereInput
+  ): [EstimateItem]
+  listEstimateJobcosts(
+    skip: Int
+    take: Int
+    where: EstimateJobCostWhereInput
+  ): [EstimateJobcost]
+  listEstimateTerms(
+    skip: Int
+    take: Int
+    where: EstimateTermWhereInput
+  ): [EstimateTerm]
   listEstimates(skip: Int, take: Int, where: EstimateWhereInput): [Estimate]
-  listEstimatorLayouts(skip: Int, take: Int, where: EstimatorLayoutWhereInput): [EstimatorLayout]
-  listInstallationTerms(skip: Int, take: Int, where: InstallationTermWhereInput): [InstallationTerm]
+  listEstimatorLayouts(
+    skip: Int
+    take: Int
+    where: EstimatorLayoutWhereInput
+  ): [EstimatorLayout]
+  listInstallationTerms(
+    skip: Int
+    take: Int
+    where: InstallationTermWhereInput
+  ): [InstallationTerm]
   listJobCosts(skip: Int, take: Int, where: JobCostWhereInput): [JobCost]
   listOrderItems(skip: Int, take: Int, where: OrderItemWhereInput): [OrderItem]
   listOrders(skip: Int, take: Int, where: OrderWhereInput): [Order]

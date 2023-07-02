@@ -1,0 +1,12 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "PutItem",
+    "populateIndexFields" : true,
+    "key": {   
+        "orderId" : $util.dynamodb.toDynamoDBJson($context.arguments.data.orderId),
+    },
+    "attributeValues" : {
+        "dateCreated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+        "dateUpdated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601())
+    }
+}

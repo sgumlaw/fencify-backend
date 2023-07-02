@@ -1,0 +1,16 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "PutItem",
+    "populateIndexFields" : true,
+    "key": {
+        "termId" : $util.dynamodb.toDynamoDBJson($context.arguments.data.termId),
+    },
+    "attributeValues" : {
+        "type" :  $util.dynamodb.toDynamoDBJson($context.arguments.data.type),
+        "jobType" : $util.dynamodb.toDynamoDBJson($context.arguments.data.jobType),
+        "class" : $util.dynamodb.toDynamoDBJson($context.arguments.data.class),
+        "description" : $util.dynamodb.toDynamoDBJson($context.arguments.data.description),
+        "dateCreated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+        "dateUpdated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601())
+    },
+}

@@ -1,19 +1,17 @@
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 const DocumentClient = new DynamoDB.DocumentClient();
 const { TransactionTypes } = require('../../lib/constants');
-const ulid = require('ulid');
 
 const { CONTRACTS_TABLE_NAME, CONTRACT_ITEMS_TABLE_NAME, CONTRACT_JOB_COSTS_TABLE_NAME, CONTRACT_TERMS_TABLE_NAME } = process.env
 
 module.exports.handler = async (event) => {
     console.log("Received event {}", JSON.stringify(event, 3));
-    const { data } = event.arguments
-    const contract = data;
+    const contract = event.arguments.data;
     const id = contract.contractId;
     const items = data.contractItems;
-    const costs = data.contractCosts;
+    const costs = data.contractJobCosts;
     const terms = data.contractTerms;
-
+    // const username = event["identity"]["claims"]["cognito:username"]
     const newContract = {
         __typename: TransactionTypes.CONTRACT,
         contractId: id,
@@ -23,7 +21,7 @@ module.exports.handler = async (event) => {
         totalContractProductCost: contract.totalContractProductCost,
         totalContractProductTax: contract.totalContractProductTax,
         totalContractProductPrice: contract.totalContractProductPrice,
-        totalContactProductPrice: contract.totalContactProductPrice,
+        totalContractProductPrice: contract.totalContractProductPrice,
         totalContractJobCosts: contract.totalContractJobCosts,
         totalContractManHours: contract.totalContractManHours,
         totalContractCosts: contract.totalContractCosts,
@@ -45,11 +43,18 @@ module.exports.handler = async (event) => {
                 itemId: item.itemId,
                 name: item.name,
                 cost: item.cost,
+                markup: item.markup,
                 price: item.price,
                 quantity: item.quantity,
                 total: item.total,
                 dateCreated: new Date(),
                 dateUpdated: new Date(),
+                source: item.source,
+                color: item.color,
+                rowId: item.rowId,
+                category: item.category,
+                received: item.received,
+                receivedDate: item.receivedDate,
             }
         })
     });

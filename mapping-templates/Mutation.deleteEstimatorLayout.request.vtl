@@ -1,0 +1,8 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "DeleteItem",
+    "key" : {
+        "estimatorId", : $util.dynamodb.toDynamoDBJson($ctx.args.where.estimatorId),
+        "transactionId", : $util.dynamodb.toDynamoDBJson($ctx.args.where.transactionId),
+    }
+}

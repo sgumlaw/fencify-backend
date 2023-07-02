@@ -1,13 +1,12 @@
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 const DocumentClient = new DynamoDB.DocumentClient();
 const { TransactionTypes, TransactionItems } = require('../../lib/constants');
-const ulid = require('ulid')
 
 const { QUOTES_TABLE_NAME, QUOTES_ITEMS_TABLE_NAME } = process.env
 
 module.exports.handler = async (event) => {
-    const { data } = event.arguments
-    const quote = data;
+    const quote = event.arguments.data
+    // $util.dynamodb.toDynamoDBJson($context.identity.username)
     const id = quote.quoteId;
     const items = quote.quoteItems;
 
@@ -37,9 +36,14 @@ module.exports.handler = async (event) => {
                 itemId: item.itemId,
                 name: item.name,
                 cost: item.cost,
+                markup: item.markup,
                 price: item.price,
                 quantity: item.quantity,
                 total: item.total,
+                source: item.source,
+                color: item.color,
+                rowId: item.rowId,
+                category: item.category,
                 dateCreated: new Date(),
                 dateUpdated: new Date(),
             }

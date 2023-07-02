@@ -1,0 +1,20 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "PutItem",
+    "populateIndexFields" : true,
+    "key": {
+        "userId" : $util.dynamodb.toDynamoDBJson($context.arguments.data.userId),
+    },
+    "attributeValues" : {
+        "lastName" : $util.dynamodb.toDynamoDBJson($context.arguments.data.lastName),
+        "firstName" :  $util.dynamodb.toDynamoDBJson($context.arguments.data.firstName),
+        "middleInitial" :  $util.dynamodb.toDynamoDBJson($context.arguments.data.middleInitial),
+        "phone" : $util.dynamodb.toDynamoDBJson($context.arguments.data.phone),
+        "email" : $util.dynamodb.toDynamoDBJson($context.arguments.data.email),
+        "hireDate" : $util.dynamodb.toDynamoDBJson($context.arguments.data.hireDate),
+        "isActive" : $util.dynamodb.toDynamoDBJson($context.arguments.data.isActive),
+        "birthdate" : $util.dynamodb.toDynamoDBJson($context.arguments.data.birthdate),
+        "dateCreated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+        "dateUpdated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601())
+    }
+}

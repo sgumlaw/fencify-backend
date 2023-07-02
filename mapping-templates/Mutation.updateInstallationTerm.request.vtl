@@ -1,0 +1,20 @@
+{
+  "version" : "2018-05-29",
+  "operation" : "UpdateItem",
+  "key": {
+    "termId" : $util.dynamodb.toDynamoDBJson($context.arguments.termId)
+  },
+  "update" : {
+    "expression" : "set #type = :type, jobType = :jobType, class = :class, description = :description, dateUpdated = :dateUpdated,",
+    "expressionNames" : {
+      "#type" : "type",
+    },
+    "expressionValues" : {
+      ":type" : $util.dynamodb.toDynamoDBJson($context.arguments.data.type),
+      ":jobType" : $util.dynamodb.toDynamoDBJson($context.arguments.data.jobType),
+      ":class" : $util.dynamodb.toDynamoDBJson($context.arguments.data.class),
+      ":description" : $util.dynamodb.toDynamoDBJson($context.arguments.data.description),
+      ":dateUpdated" : $util.dynamodb.toDynamoDBJson($context.arguments.data.dateUpdated)
+    }
+  },  
+}

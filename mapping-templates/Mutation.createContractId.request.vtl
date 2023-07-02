@@ -1,0 +1,13 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "PutItem",
+    "populateIndexFields" : true,
+    "key": {
+        "id" : $util.dynamodb.toDynamoDBJson($util.autoId()),
+        "contractId" : $util.dynamodb.toDynamoDBJson($context.arguments.data.contractId),
+    },
+    "attributeValues" : {
+        "dateCreated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+        "dateUpdated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601())
+    }
+}

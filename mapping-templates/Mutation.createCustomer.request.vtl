@@ -1,0 +1,24 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "PutItem",
+    "populateIndexFields" : true,
+    "key": {
+        "customerId" : $util.dynamodb.toDynamoDBJson($context.arguments.data.customerId),
+    },
+    "attributeValues" : {
+        "name" : $util.dynamodb.toDynamoDBJson($context.arguments.data.name),
+        "customerType" :  $util.dynamodb.toDynamoDBJson($context.arguments.data.customerType),
+        "address" : $util.dynamodb.toDynamoDBJson($context.arguments.data.address),
+        "city" : $util.dynamodb.toDynamoDBJson($context.arguments.data.city),
+        "state" : $util.dynamodb.toDynamoDBJson($context.arguments.data.state),
+        "zipcode" : $util.dynamodb.toDynamoDBJson($context.arguments.data.zipcode),
+        "contactName" : $util.dynamodb.toDynamoDBJson($context.arguments.data.contactName),
+        "contactEmail" : $util.dynamodb.toDynamoDBJson($context.arguments.data.contactEmail),
+        "website" : $util.dynamodb.toDynamoDBJson($context.arguments.data.website),
+        "source" : $util.dynamodb.toDynamoDBJson($context.arguments.data.source),
+        "phone" : $util.dynamodb.toDynamoDBJson($context.arguments.data.phone),
+        "priceLevel" : $util.dynamodb.toDynamoDBJson($context.arguments.data.priceLevel),
+        "dateCreated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+        "dateUpdated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601())
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "PutItem",
+    "populateIndexFields" : true,
+    "key": {
+        "costId" : $util.dynamodb.toDynamoDBJson($context.arguments.data.costId),
+    },
+    "attributeValues" : {
+        "name" : $util.dynamodb.toDynamoDBJson($context.arguments.data.name),
+        "type" :  $util.dynamodb.toDynamoDBJson($context.arguments.data.type),
+        "rate" : $util.dynamodb.toDynamoDBJson($context.arguments.data.rate),
+        "rateType" : $util.dynamodb.toDynamoDBJson($context.arguments.data.rateType),
+        "jobType" : $util.dynamodb.toDynamoDBJson($context.arguments.data.jobType),
+        "dateCreated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601()),
+        "dateUpdated" : $util.dynamodb.toDynamoDBJson($util.time.nowISO8601())
+    },
+}

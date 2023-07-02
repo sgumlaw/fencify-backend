@@ -75,56 +75,6 @@ functions:
   #         - s3:PutObjectAcl
   #       Resource: !Sub ${AssetsBucket.Arn}/*
 
-  createUser:
-    handler: functions/create/create-user.handler
-    environment:
-      USERS_TABLE_NAME: !Ref UsersTable
-    iamRoleStatements:
-      - Effect: Allow
-        Action: dynamoDb:PutItem
-        Resource: 
-          - !GetAtt UsersTable.Arn
-
-  createCustomer:
-    handler: functions/create/create-customer.handler
-    environment:
-      CUSTOMERS_TABLE_NAME: !Ref CustomersTable
-    iamRoleStatements:
-      - Effect: Allow
-        Action: dynamoDb:PutItem
-        Resource: 
-          - !GetAtt CustomersTable.Arn
-  
-  createProduct:
-    handler: functions/create/create-product.handler
-    environment:
-      PRODUCTS_TABLE_NAME: !Ref ProductsTable
-    iamRoleStatements:
-      - Effect: Allow
-        Action: dynamoDb:PutItem
-        Resource: 
-          - !GetAtt ProductsTable.Arn
-  
-  createJobCost:
-    handler: functions/create/create-jobcost.handler
-    environment:
-      JOB_COSTS_TABLE_NAME: !Ref JobCostsTable
-    iamRoleStatements:
-      - Effect: Allow
-        Action: dynamoDb:PutItem
-        Resource: 
-          - !GetAtt JobCostsTable.Arn
-  
-  createInstallationTerm:
-    handler: functions/create/create-installation-term.handler
-    environment:
-      INSTALLATION_TERMS_TABLE_NAME: !Ref InstallationTermsTable
-    iamRoleStatements:
-      - Effect: Allow
-        Action: dynamoDb:PutItem
-        Resource: 
-          - !GetAtt InstallationTermsTable.Arn
-  
   createQuote:
     handler: functions/create/create-quote.handler
     environment:
@@ -133,6 +83,28 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt QuotesTable.Arn
+          - !GetAtt QuoteItemsTable.Arn
+  updateQuote:
+    handler: functions/update/update-quote.handler
+    environment:
+      QUOTES_TABLE_NAME: !Ref QuotesTable
+      QUOTE_ITEMS_TABLE_NAME: !Ref QuoteItemsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt QuotesTable.Arn
+          - !GetAtt QuoteItemsTable.Arn
+  deleteQuote:
+    handler: functions/delete/delete-quote.handler
+    environment:
+      QUOTES_TABLE_NAME: !Ref QuotesTable
+      QUOTE_ITEMS_TABLE_NAME: !Ref QuoteItemsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:DeleteItem
         Resource: 
           - !GetAtt QuotesTable.Arn
           - !GetAtt QuoteItemsTable.Arn
@@ -148,6 +120,28 @@ functions:
         Resource: 
           - !GetAtt OrdersTable.Arn
           - !GetAtt OrderItemsTable.Arn
+  updateOrder:
+    handler: functions/update/update-order.handler
+    environment:
+      ORDERS_TABLE_NAME: !Ref OrdersTable
+      ORDER_ITEMS_TABLE_NAME: !Ref OrderItemsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt OrdersTable.Arn
+          - !GetAtt OrderItemsTable.Arn
+  deleteOrder:
+    handler: functions/delete/delete-order.handler
+    environment:
+      ORDERS_TABLE_NAME: !Ref OrdersTable
+      ORDER_ITEMS_TABLE_NAME: !Ref OrderItemsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:DeleteItem
+        Resource: 
+          - !GetAtt OrdersTable.Arn
+          - !GetAtt OrderItemsTable.Arn
 
   createEstimate:
     handler: functions/create/create-estimate.handler
@@ -159,6 +153,36 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt EstimatesTable.Arn
+          - !GetAtt EstimateItemsTable.Arn
+          - !GetAtt EstimateJobCostsTable.Arn
+          - !GetAtt EstimateTermsTable.Arn
+  updateEstimate:
+    handler: functions/update/update-estimate.handler
+    environment:
+      ESTIMATES_TABLE_NAME: !Ref EstimatesTable
+      ESTIMATE_ITEMS_TABLE_NAME: !Ref EstimateItemsTable
+      ESTIMATE_JOB_COSTS_TABLE_NAME: !Ref EstimateJobCostsTable
+      ESTIMATE_TERMS_TABLE_NAME: !Ref EstimateTermsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt EstimatesTable.Arn
+          - !GetAtt EstimateItemsTable.Arn
+          - !GetAtt EstimateJobCostsTable.Arn
+          - !GetAtt EstimateTermsTable.Arn
+  deleteEstimate:
+    handler: functions/delete/delete-estimate.handler
+    environment:
+      ESTIMATES_TABLE_NAME: !Ref EstimatesTable
+      ESTIMATE_ITEMS_TABLE_NAME: !Ref EstimateItemsTable
+      ESTIMATE_JOB_COSTS_TABLE_NAME: !Ref EstimateJobCostsTable
+      ESTIMATE_TERMS_TABLE_NAME: !Ref EstimateTermsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:DeleteItem
         Resource: 
           - !GetAtt EstimatesTable.Arn
           - !GetAtt EstimateItemsTable.Arn
@@ -180,8 +204,37 @@ functions:
           - !GetAtt ContractItemsTable.Arn
           - !GetAtt ContractJobCostsTable.Arn
           - !GetAtt ContractTermsTable.Arn
+  updateContract:
+    handler: functions/update/update-contract.handler
+    environment:
+      CONTRACTS_TABLE_NAME: !Ref ContractsTable
+      CONTRACT_ITEMS_TABLE_NAME: !Ref ContractItemsTable
+      CONTRACT_JOB_COSTS_TABLE_NAME: !Ref ContractJobCostsTable
+      CONTRACT_TERMS_TABLE_NAME: !Ref ContractTermsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt ContractsTable.Arn
+          - !GetAtt ContractItemsTable.Arn
+          - !GetAtt ContractJobCostsTable.Arn
+          - !GetAtt ContractTermsTable.Arn
+  deleteContract:
+    handler: functions/delete/delete-contract.handler
+    environment:
+      CONTRACTS_TABLE_NAME: !Ref ContractsTable
+      CONTRACT_ITEMS_TABLE_NAME: !Ref ContractItemsTable
+      CONTRACT_JOB_COSTS_TABLE_NAME: !Ref ContractJobCostsTable
+      CONTRACT_TERMS_TABLE_NAME: !Ref ContractTermsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:DeleteItem
+        Resource: 
+          - !GetAtt ContractsTable.Arn
+          - !GetAtt ContractItemsTable.Arn
+          - !GetAtt ContractJobCostsTable.Arn
+          - !GetAtt ContractTermsTable.Arn
           
-  
   createEstimator:
     handler: functions/create/create-estimator.handler
     environment:
@@ -191,550 +244,621 @@ functions:
         Action: dynamoDb:PutItem
         Resource: 
           - !GetAtt EstimatorsTable.Arn
+  updateEstimator:
+    handler: functions/update/update-estimator.handler
+    environment:
+      ESTIMATORS_TABLE_NAME: !Ref EstimatorsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt EstimatorsTable.Arn
   
-  # createEstimatorSpec:
-  #   handler: functions/create/create-estimator-spec.handler
-  #   environment:
-  #     ESTIMATOR_SPECS_TABLE_NAME: !Ref EstimatorSpecsTable
-  #   iamRoleStatements:
-  #     - Effect: Allow
-  #       Action: dynamoDb:PutItem
-  #       Resource: 
-  #         - !GetAtt EstimatorSpecsTable.Arn
+  createEstimatorSpec:
+    handler: functions/create/create-estimator-spec.handler
+    environment:
+      ESTIMATOR_SPECS_TABLE_NAME: !Ref EstimatorSpecsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt EstimatorSpecsTable.Arn
+  updateEstimatorSpec:
+    handler: functions/update/update-estimator-spec.handler
+    environment:
+      ESTIMATOR_SPECS_TABLE_NAME: !Ref EstimatorSpecsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:UpdateItem
+        Resource: 
+          - !GetAtt EstimatorSpecsTable.Arn
   
-  # createEstimatorLayout:
-  #   handler: functions/create/create-estimator-layout.handler
-  #   environment:
-  #     ESTIMATOR_LAYOUTS_TABLE_NAME: !Ref EstimatorLayoutsTable
-  #   iamRoleStatements:
-  #     - Effect: Allow
-  #       Action: dynamoDb:PutItem
-  #       Resource: 
-  #         - !GetAtt EstimatorLayoutsTable.Arn
+  createEstimatorLayout:
+    handler: functions/create/create-estimator-layout.handler
+    environment:
+      ESTIMATOR_LAYOUTS_TABLE_NAME: !Ref EstimatorLayoutsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:PutItem
+        Resource: 
+          - !GetAtt EstimatorLayoutsTable.Arn
+  updateEstimatorLayout:
+    handler: functions/update/update-estimator-layout.handler
+    environment:
+      ESTIMATOR_LAYOUTS_TABLE_NAME: !Ref EstimatorLayoutsTable
+    iamRoleStatements:
+      - Effect: Allow
+        Action: dynamoDb:UpdateItem
+        Resource: 
+          - !GetAtt EstimatorLayoutsTable.Arn
 
 resources:
-  Resources:
-    UsersTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: userId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: userId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: users-table
+ Resources:
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: users-table
 
-    CustomersTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: customerId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: customerId
-            AttributeType: S
-          - AttributeName: customerType
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byCustomerType
-            KeySchema:
-              - AttributeName: customerType
-                KeyType: HASH
-              - AttributeName: customerId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL 
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: customers
+  CustomersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: customerId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: customerId
+          AttributeType: S
+        - AttributeName: customerType
+          AttributeType: S
+      GlobalSecondaryIndexes:
+        - IndexName: byCustomerType
+          KeySchema:
+            - AttributeName: customerType
+              KeyType: HASH
+            - AttributeName: customerId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL 
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: customers
 
-    ProductsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: itemId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: itemId
-            AttributeType: S
-          # - AttributeName: category
-          #   AttributeType: S
-        # GlobalSecondaryIndexes:
-        #   - IndexName: byProductCategory
-        #     KeySchema:
-        #       - AttributeName: category
-        #         KeyType: HASH
-        #       - AttributeName: itemId
-        #         KeyType: RANGE
-        #     Projection:
-        #       ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: products
-    
-    JobCostsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: costId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: costId
-            AttributeType: S
-          - AttributeName: type
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byJobCostType
-            KeySchema:
-              - AttributeName: type
-                KeyType: HASH
-              - AttributeName: costId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: job-costs
-    
-    InstallationTermsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: termId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: termId
-            AttributeType: S
-          - AttributeName: type
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byConditionTypes
-            KeySchema:
-              - AttributeName: type
-                KeyType: HASH
-              - AttributeName: termId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: installation-terms
-    
-    QuotesTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: quoteId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: quoteId
-            AttributeType: S
-          - AttributeName: userId
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byCreator
-            KeySchema:
-              - AttributeName: userId
-                KeyType: HASH
-              - AttributeName: quoteId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: quotes
-    
-    QuoteItemsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: quoteId
-            KeyType: HASH
-          - AttributeName: itemId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: quoteId
-            AttributeType: S
-          - AttributeName: itemId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: quote-items
-    
-    OrdersTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: orderId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: orderId
-            AttributeType: S
-          - AttributeName: userId
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byCreator
-            KeySchema:
-              - AttributeName: userId
-                KeyType: HASH
-              - AttributeName: orderId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: orders
-    
-    OrderItemsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: orderId
-            KeyType: HASH
-          - AttributeName: itemId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: orderId
-            AttributeType: S
-          - AttributeName: itemId
-            AttributeType: S 
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: order-items
-    
-    EstimatesTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: estimateId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: estimateId
-            AttributeType: S
-          - AttributeName: userId
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byCreator
-            KeySchema:
-              - AttributeName: userId
-                KeyType: HASH
-              - AttributeName: estimateId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: estimates
-    
-    EstimateItemsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: estimateId
-            KeyType: HASH
-          - AttributeName: itemId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: estimateId
-            AttributeType: S
-          - AttributeName: itemId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: estimate-items
-    
-    EstimateJobCostsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: estimateId
-            KeyType: HASH
-          - AttributeName: costId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: estimateId
-            AttributeType: S
-          - AttributeName: costId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: estimate-jobcosts
-    
-    EstimateTermsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: estimateId
-            KeyType: HASH
-          - AttributeName: termId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: estimateId
-            AttributeType: S
-          - AttributeName: termId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: contract-terms
+  ProductsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: itemId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: itemId
+          AttributeType: S
+        # - AttributeName: category
+        #   AttributeType: S
+      # GlobalSecondaryIndexes:
+      #   - IndexName: byProductCategory
+      #     KeySchema:
+      #       - AttributeName: category
+      #         KeyType: HASH
+      #       - AttributeName: itemId
+      #         KeyType: RANGE
+      #     Projection:
+      #       ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: products
 
-    ContractsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: contractId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: contractId
-            AttributeType: S
-          - AttributeName: userId
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byCreator
-            KeySchema:
-              - AttributeName: userId
-                KeyType: HASH
-              - AttributeName: contractId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: contracts
-    
-    ContractItemsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: contractId
-            KeyType: HASH
-          - AttributeName: itemId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: contractId
-            AttributeType: S
-          - AttributeName: itemId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: contract-items
-    
-    ContractJobCostsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: contractId
-            KeyType: HASH
-          - AttributeName: costId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: contractId
-            AttributeType: S
-          - AttributeName: costId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: contract-terms
+  JobCostsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: costId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: costId
+          AttributeType: S
+
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: job-costs
+
+  InstallationTermsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: termId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: termId
+          AttributeType: S
+        
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: installation-terms
+
+  QuotesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: quoteId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: quoteId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      GlobalSecondaryIndexes:
+        - IndexName: byCreator
+          KeySchema:
+            - AttributeName: userId
+              KeyType: HASH
+            - AttributeName: quoteId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: quotes
+
+  QuoteIdsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: quoteId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: quoteId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: quote-ids
+
+  QuoteItemsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: quoteId
+          KeyType: HASH
+        - AttributeName: itemId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: quoteId
+          AttributeType: S
+        - AttributeName: itemId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: quote-items
+
+  OrdersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: orderId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: orderId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      GlobalSecondaryIndexes:
+        - IndexName: byCreator
+          KeySchema:
+            - AttributeName: userId
+              KeyType: HASH
+            - AttributeName: orderId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: orders
+
+  OrderIdsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: orderId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: orderId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: order-ids
+
+  OrderItemsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: orderId
+          KeyType: HASH
+        - AttributeName: itemId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: orderId
+          AttributeType: S
+        - AttributeName: itemId
+          AttributeType: S 
+      GlobalSecondaryIndexes:
+        - IndexName: byOrderId
+          KeySchema:
+            - AttributeName: orderId
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: order-items
+
+  EstimatesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimateId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: estimateId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      GlobalSecondaryIndexes:
+        - IndexName: byCreator
+          KeySchema:
+            - AttributeName: userId
+              KeyType: HASH
+            - AttributeName: estimateId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimates
+
+  EstimateIdsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimateId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: estimateId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimate-ids
+
+  EstimateItemsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimateId
+          KeyType: HASH
+        - AttributeName: itemId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: estimateId
+          AttributeType: S
+        - AttributeName: itemId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimate-items
+
+  EstimateJobCostsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimateId
+          KeyType: HASH
+        - AttributeName: costId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: estimateId
+          AttributeType: S
+        - AttributeName: costId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimate-jobcosts
+
+  EstimateTermsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimateId
+          KeyType: HASH
+        - AttributeName: termId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: estimateId
+          AttributeType: S
+        - AttributeName: termId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimate-terms
+
+  ContractsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: contractId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: contractId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+      GlobalSecondaryIndexes:
+        - IndexName: byCreator
+          KeySchema:
+            - AttributeName: userId
+              KeyType: HASH
+            - AttributeName: contractId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: contracts
+
+  ContractIdsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: contractId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: contractId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: contract-ids
+
+  ContractItemsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: contractId
+          KeyType: HASH
+        - AttributeName: itemId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: contractId
+          AttributeType: S
+        - AttributeName: itemId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: contract-items
+
+  ContractJobCostsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: contractId
+          KeyType: HASH
+        - AttributeName: costId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: contractId
+          AttributeType: S
+        - AttributeName: costId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: contract-jobcosts
+
+  ContractTermsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: contractId
+          KeyType: HASH
+        - AttributeName: termId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: contractId
+          AttributeType: S
+        - AttributeName: termId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: contract-terms
+
+  EstimatorSpecsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimatorId
+          KeyType: HASH
+        - AttributeName: transactionId
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: estimatorId
+          AttributeType: S
+        - AttributeName: transactionId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimator-specs
+
+  EstimatorLayoutsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimatorId
+          KeyType: HASH
+        - AttributeName: transactionId
+          KeyType: RANGE  
+      AttributeDefinitions:
+        - AttributeName: estimatorId
+          AttributeType: S
+        - AttributeName: transactionId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimator-layout
+
+  EstimatorsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: estimatorId
+          KeyType: HASH
+        - AttributeName: transactionId
+          KeyType: RANGE 
+      AttributeDefinitions:
+        - AttributeName: estimatorId
+          AttributeType: S
+        - AttributeName: transactionId
+          AttributeType: S
+      Tags:
+        - Key: Environment
+          Value: ${self:custom.stage}
+        - Key: Name
+          Value: estimators
+
+  CognitoUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      AutoVerifiedAttributes:
+        - email
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireLowercase: false
+          RequireNumbers: false
+          RequireUppercase: false
+          RequireSymbols: false
+      UsernameAttributes:
+        - email
+      Schema:
+        - AttributeDataType: String
+          Name: name
+          Required: false
+          Mutable: true
+      LambdaConfig:
+        PostConfirmation: !GetAtt ConfirmUserSignupLambdaFunction.Arn
+
+  UserPoolInvokeConfirmUserSignupLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:invokeFunction
+      FunctionName: !Ref ConfirmUserSignupLambdaFunction
+      Principal: cognito-idp.amazonaws.com
+      SourceArn: !GetAtt CognitoUserPool.Arn
+
+  WebUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref CognitoUserPool
+      ClientName: web
+      ExplicitAuthFlows:
+        - ALLOW_USER_SRP_AUTH
+        - ALLOW_USER_PASSWORD_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+      PreventUserExistenceErrors: ENABLED
+
+  AssetsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccelerateConfiguration:
+        AccelerationStatus: Enabled
+      CorsConfiguration:
+        CorsRules:
+          - AllowedMethods:
+              - GET
+              - PUT
+            AllowedOrigins:
+              - '*'
+            AllowedHeaders:
+              - '*'
+
+Outputs:
+  AwsRegion:
+    Value: ${self:custom.region}
+
+  CognitoUserPoolId:
+    Value: !Ref CognitoUserPool
   
-    ContractTermsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: contractId
-            KeyType: HASH
-          - AttributeName: termId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: contractId
-            AttributeType: S
-          - AttributeName: termId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: contract-jobcosts
-    
-    EstimatorSpecsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: estimatorId
-            KeyType: HASH
-          - AttributeName: transactionId
-            KeyType: RANGE
-        AttributeDefinitions:
-          - AttributeName: estimatorId
-            AttributeType: S
-          - AttributeName: transactionId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: estimator-specifications
-    
-    EstimatorLayoutsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: estimatorId
-            KeyType: HASH
-          - AttributeName: transactionId
-            KeyType: RANGE  
-        AttributeDefinitions:
-          - AttributeName: estimatorId
-            AttributeType: S
-          - AttributeName: transactionId
-            AttributeType: S
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: layout-summary
-    
-    EstimatorsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        BillingMode: PAY_PER_REQUEST
-        KeySchema:
-          - AttributeName: estimatorId
-            KeyType: HASH
-        AttributeDefinitions:
-          - AttributeName: estimatorId
-            AttributeType: S
-          - AttributeName: transactionId
-            AttributeType: S
-        GlobalSecondaryIndexes:
-          - IndexName: byTransactionId
-            KeySchema:
-              - AttributeName: transactionId
-                KeyType: HASH
-              - AttributeName: estimatorId
-                KeyType: RANGE
-            Projection:
-              ProjectionType: ALL
-        Tags:
-          - Key: Environment
-            Value: ${self:custom.stage}
-          - Key: Name
-            Value: estimator
-  
-    CognitoUserPool:
-      Type: AWS::Cognito::UserPool
-      Properties:
-        AutoVerifiedAttributes:
-          - email
-        Policies:
-          PasswordPolicy:
-            MinimumLength: 8
-            RequireLowercase: false
-            RequireNumbers: false
-            RequireUppercase: false
-            RequireSymbols: false
-        UsernameAttributes:
-          - email
-        Schema:
-          - AttributeDataType: String
-            Name: name
-            Required: false
-            Mutable: true
-        LambdaConfig:
-          PostConfirmation: !GetAtt ConfirmUserSignupLambdaFunction.Arn
-
-    UserPoolInvokeConfirmUserSignupLambdaPermission:
-      Type: AWS::Lambda::Permission
-      Properties:
-        Action: lambda:invokeFunction
-        FunctionName: !Ref ConfirmUserSignupLambdaFunction
-        Principal: cognito-idp.amazonaws.com
-        SourceArn: !GetAtt CognitoUserPool.Arn
-
-    WebUserPoolClient:
-      Type: AWS::Cognito::UserPoolClient
-      Properties:
-        UserPoolId: !Ref CognitoUserPool
-        ClientName: web
-        ExplicitAuthFlows:
-          - ALLOW_USER_SRP_AUTH
-          - ALLOW_USER_PASSWORD_AUTH
-          - ALLOW_REFRESH_TOKEN_AUTH
-        PreventUserExistenceErrors: ENABLED
-
-    AssetsBucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        AccelerateConfiguration:
-          AccelerationStatus: Enabled
-        CorsConfiguration:
-          CorsRules:
-            - AllowedMethods:
-                - GET
-                - PUT
-              AllowedOrigins:
-                - '*'
-              AllowedHeaders:
-                - '*'
-  
-  Outputs:
-    AwsRegion:
-      Value: ${self:custom.region}
-
-    CognitoUserPoolId:
-      Value: !Ref CognitoUserPool
-    
-    WebCognitoUserPoolClientId:
-      Value: !Ref WebUserPoolClient
+  WebCognitoUserPoolClientId:
+    Value: !Ref WebUserPoolClient

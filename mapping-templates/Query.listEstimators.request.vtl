@@ -1,0 +1,10 @@
+{
+    "version" : "2018-05-29",
+    "operation" : "Scan",
+    "index" : "estimatorId",
+    "scanIndexForward" : false,
+    "consistentRead" : false,
+    "select" : "ALL_ATTRIBUTES",
+    "limit" : $util.toJson($context.arguments.limit),
+    "nextToken" : $util.toJson($context.arguments.nextToken),
+}

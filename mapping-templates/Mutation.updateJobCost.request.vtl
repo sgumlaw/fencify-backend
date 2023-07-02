@@ -1,0 +1,22 @@
+{
+  "version" : "2018-05-29",
+  "operation" : "UpdateItem",
+  "key": {
+    "costId" : $util.dynamodb.toDynamoDBJson($context.arguments.where.costId)
+  },
+  "update" : {
+    "expression" : "set #name = :name, #type = :type, rate = :rate, rateType = :rateType, jobType = :jobType, dateUpdated = :dateUpdated,",
+    "expressionNames" : {
+      "#name" : "name",
+      "#type" : "type",
+    },
+    "expressionValues" : {
+      ":name" : $util.dynamodb.toDynamoDBJson($context.arguments.data.name),
+      ":type" : $util.dynamodb.toDynamoDBJson($context.arguments.data.type),
+      ":rate" : $util.dynamodb.toDynamoDBJson($context.arguments.data.rate),
+      ":rateType" : $util.dynamodb.toDynamoDBJson($context.arguments.data.rateType),
+      ":jobType" : $util.dynamodb.toDynamoDBJson($context.arguments.data.jobType),
+      ":dateUpdated" : $util.dynamodb.toDynamoDBJson($context.arguments.data.dateUpdated)
+    }
+  },  
+}
